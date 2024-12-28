@@ -93,9 +93,7 @@ const Profile = () => {
           <p className="profile-info-item"><strong>Mobile:</strong> {user.mobile}</p>
           <p className="profile-info-item"><strong>Batch:</strong> {user.batch}</p>
           <p className="profile-info-item"><strong>Hall:</strong> {user.hall}</p>
-          <p className="profile-info-item"><strong>Clubs Member:</strong> {user.clubsMember}</p>
-          <p className="profile-info-item"><strong>Admin:</strong> {user.admin}</p>
-          <p className="profile-info-item"><strong>Clubs Moderator:</strong> {user.clubsModerator}</p>
+          <p className="profile-info-item"><strong>Clubs Moderator:</strong> {user.admin}</p>
         </div>
       </div>
     </div>

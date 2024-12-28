@@ -136,7 +136,6 @@ const Profile = () => {
           <p className="profile-info-item"><strong>Batch:</strong> {user.batch}</p>
           <p className="profile-info-item"><strong>Hall:</strong> {user.hall}</p>
           <p className="profile-info-item"><strong>Clubs Moderator:</strong> {user.admin}</p>
-          <p className="profile-info-item"><strong>Clubs Member:</strong> {user.clubsMember}</p>
         </div>
       </div>
 
