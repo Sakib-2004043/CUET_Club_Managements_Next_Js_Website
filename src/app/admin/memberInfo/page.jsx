@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import "./info.css";
 
-const AdminInterface = () => {
+const AdminInfo = () => {
   const [users, setUsers] = useState([]); // All users fetched from the API
   const [filteredUsers, setFilteredUsers] = useState([]); // Users to display after search
   const [searchText, setSearchText] = useState(""); // Search input text
@@ -129,4 +129,4 @@ const AdminInterface = () => {
   );
 };
 
-export default AdminInterface;
+export default AdminInfo;

@@ -1,0 +1,114 @@
+/* Global reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Full screen background animation */
+.not-found-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ff6f61, #ffcc70, #8e44ad);
+  background-size: 400% 400%;
+  animation: gradientAnimation 8s ease infinite;
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+}
+
+/* Animation for the gradient */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Content inside the 404 page */
+.not-found-content {
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Animation for content fading in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Title styling */
+.not-found-title {
+  font-size: 120px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  letter-spacing: 5px;
+  animation: popIn 1s ease-out;
+}
+
+/* Animation for title pop-in */
+@keyframes popIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Message styling */
+.not-found-message {
+  font-size: 24px;
+  margin-bottom: 30px;
+  animation: slideIn 1.5s ease-out;
+}
+
+/* Animation for the message sliding in */
+@keyframes slideIn {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Link styling */
+.not-found-link {
+  font-size: 20px;
+  padding: 10px 30px;
+  text-decoration: none;
+  background-color: #f39c12;
+  color: #fff;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  animation: bounce 1.5s infinite alternate;
+}
+
+.not-found-link:hover {
+  background-color: #f1c40f;
+}
+
+/* Animation for the link bouncing */
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}

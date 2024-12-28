@@ -5,7 +5,7 @@ import { Bar } from "react-chartjs-2";
 import "chart.js/auto";
 import "./admin.css"; // Import regular CSS file
 
-const AdminInterface = () => {
+const AdminLanding = () => {
   // Dummy data for clubs
   const [clubs] = useState([
     { name: "Coding Club", members: 50 },
@@ -62,4 +62,4 @@ const AdminInterface = () => {
   );
 };
 
-export default AdminInterface;
+export default AdminLanding;

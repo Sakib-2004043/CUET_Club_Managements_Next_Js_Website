@@ -19,7 +19,7 @@ const ModeratorHeader = ({children}) => {
       <Link href="/moderator/moderation/clubMembers" className='link'>
         Club Members
       </Link>
-      <Link href="/moderator/approvals" className= 'link'>
+      <Link href="/moderator/moderation" className= 'link'>
         Approvals
       </Link>
     </nav>

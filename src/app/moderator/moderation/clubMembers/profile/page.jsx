@@ -6,13 +6,8 @@ import "./profile.css";
 
 const Profile = () => {
   const router = useRouter();
-  const data = JSON.parse(localStorage.getItem("STDID")); 
-  const studentId = data.studentId
-  const admin = data.admin
-
-  //console.log(data.studentId)
-
-
+  const [studentId, setStudentId] = useState(null);
+  const [admin, setAdmin] = useState(null);
 
   // State to hold user data and image
   const [user, setUser] = useState(null);
@@ -25,6 +20,14 @@ const Profile = () => {
   // Fetch user data from the API on component mount
   useEffect(() => {
     const fetchUserData = async () => {
+
+      if (typeof window !== "undefined") {
+        const data = JSON.parse(localStorage.getItem("STDID"));
+        if (data) {
+          setStudentId(data.studentId);
+          setAdmin(data.admin);
+        }
+      }
 
       try {
         // Send POST request with studentId

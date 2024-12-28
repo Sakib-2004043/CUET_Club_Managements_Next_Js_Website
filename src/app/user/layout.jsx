@@ -60,7 +60,7 @@ export default function subLayout({ children }) {
         <Link href="/user/announcements" className="user-link">
           Announcements
         </Link>
-        <Link href="/user/reports" className="user-link">
+        <Link href="/user" className="user-link">
           Reports
         </Link>
       </nav>

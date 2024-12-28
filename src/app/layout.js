@@ -1,4 +1,5 @@
-import "./layout.css"
+import Link from 'next/link';
+import "./layout.css";
 
 export const metadata = {
   title: "Create Next App",
@@ -9,15 +10,20 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-      <footer className="footer">
+        <footer className="footer">
           <nav className="footer-nav">
-            <a href="/" className="footer-link">Home</a>
-            <a href="/login" className="footer-link">Login</a>
-            <a href="/register" className="footer-link">Signup</a>
+            <Link href="/" className="footer-link">
+              Home
+            </Link>
+            <Link href="/login" className="footer-link">
+              Login
+            </Link>
+            <Link href="/register" className="footer-link">
+              Signup
+            </Link>
           </nav>
         </footer>
         {children}
-        
       </body>
     </html>
   );
