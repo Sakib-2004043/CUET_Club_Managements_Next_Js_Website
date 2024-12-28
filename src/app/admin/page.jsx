@@ -33,19 +33,7 @@ const AdminInterface = () => {
   return (
     <div className="admin-container">
 
-      {/* Announcements Section */}
-      <div className="admin-section">
-        <h2 className="admin-section-title">Announcements</h2>
-        <form className="admin-announcement-form">
-          <textarea
-            className="admin-announcement-textarea"
-            placeholder="Write an announcement..."
-          ></textarea>
-          <button type="submit" className="admin-button announcement-button">
-            Post Announcement
-          </button>
-        </form>
-      </div>
+      <h1>Admin Landing</h1>
     </div>
   );
 };

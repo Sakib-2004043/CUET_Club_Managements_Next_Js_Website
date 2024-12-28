@@ -1,0 +1,39 @@
+.sub-layout{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+/* Styling the navigation bar */
+.nav {
+  gap: 20px;
+  padding: 20px 20px 20px 20px;
+  background-color: #f8f9fa;
+  border-bottom: 2px solid #ddd;
+}
+
+.link {
+  text-decoration: none;
+  color: #0070f3;
+  font-weight: normal;
+  padding: 8px 15px;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.link:hover {
+  background-color: #0070f3;
+  color: white;
+}
+
+.link:focus {
+  outline: 2px solid #0070f3;
+  outline-offset: 2px;
+}
+
+/* Active link styles */
+.active {
+  font-weight: bold;
+  color: #0070f3;
+  background-color: #e0e0e0;
+}
+

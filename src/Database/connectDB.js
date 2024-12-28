@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 
-// const DB_URL = "mongodb+srv://sakib313:sakib313@islamiccluster.sbc761q.mongodb.net/clubDB?retryWrites=true&w=majority&appName=IslamicCluster";
-const DB_URL = "mongodb://127.0.0.1:27017/clubDB";
+const DB_URL = process.env.DB_URL;
 
 const connectDB = async () => {
   if (!DB_URL) {

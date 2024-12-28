@@ -71,6 +71,18 @@ export async function POST(req) {
     approval = "Not Requested"
     msg = "Request To Join"
   }
+  else if(status === "Accepted"){
+    approval = "Accepted"
+    msg = "Request Accepted"
+  }
+  else if(status === "Rejected"){
+    approval = "Rejected"
+    msg = "Request Rejected"
+  }
+  else if(status === "Removed"){
+    approval = "Removed"
+    msg = "Removed From Group"
+  }
   try {
     // Ensure connection is made before performing any DB operations
     await connectDB();
@@ -85,7 +97,8 @@ export async function POST(req) {
 
     return NextResponse.json({ message: `${status} Request Sent Successfully`,msg }, { status: 201 });
 
-  } catch (error) {
+  } 
+  catch (error) {
     console.error('Error storing data:', error);
     return NextResponse.json({ error: 'Failed to register user', details: error.message }, { status: 500 });
   }

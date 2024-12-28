@@ -2,19 +2,45 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import "./info.css";
+import { jwtDecode } from 'jwt-decode'; // Import jwt-decode library
 
-const AdminInterface = () => {
+import "./modMem.css";
+
+const clubMembers = () => {
   const [users, setUsers] = useState([]); // All users fetched from the API
   const [filteredUsers, setFilteredUsers] = useState([]); // Users to display after search
   const [searchText, setSearchText] = useState(""); // Search input text
+  const [admin, setAdmin] = useState("");
   const router = useRouter(); // Next.js router for navigation
+
+  const token = typeof window !== "undefined" ? localStorage.getItem("token") : null;
+
 
   useEffect(() => {
     // Fetch users when the component loads
     const fetchData = async () => {
+      if (!token) {
+        router.push('/login');
+        return;
+      }
       try {
-        const usersResponse = await fetch("/api/admin");
+        const decodedToken = jwtDecode(token);
+        const { admin } = decodedToken;
+
+        if (!admin) {
+          console.error("Club Name Not Found.");
+          router.push('/login');
+          return;
+        }
+        setAdmin(admin)
+        const usersResponse = await fetch('/api/moderation', {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
+          },
+          body: JSON.stringify({ admin }),
+        });
 
         const usersData = await usersResponse.json();
         setUsers(usersData.data); // Set all users
@@ -71,7 +97,13 @@ const AdminInterface = () => {
 
   // Handle row click to navigate to the student's admin page
   const handleRowClick = (studentId) => {
-    router.push(`/admin/${studentId}`);
+    const data = {
+      studentId : studentId,
+      admin : admin
+    }
+    localStorage.setItem("STDID",JSON.stringify(data))
+    console.log(localStorage.getItem("STDID"))
+    router.push(`/moderator/moderation/clubMembers/profile`);
   };
 
   return (
@@ -129,4 +161,4 @@ const AdminInterface = () => {
   );
 };
 
-export default AdminInterface;
+export default clubMembers;

@@ -25,11 +25,11 @@ export default function subLayout({ children }) {
         const decodedData = jwtDecode(token);
         console.log("Admin : ", decodedData.admin);
 
-        if(decodedData.admin === "Member Only"){
-          router.push("/user")
+        if(decodedData.admin === "Admin"){
+          router.push("/admin") // Redirect to user route
         }
-        else if(decodedData.admin !== "Admin"){
-          router.push("/moderator")
+        else if(decodedData.admin === "Member Only"){
+          router.push("/user") // Redirect to user route
         }
         
       } 
@@ -46,25 +46,25 @@ export default function subLayout({ children }) {
 
   return (
     <div className="sub-layout">
-      <h1 className="admin-title">Admin Dashboard</h1>
-      <nav className="admin-nav">
-        <Link href="/admin" className="admin-link" onClick={validateToken}>
+      <h1 className="user-title">User Dashboard</h1>
+      <nav className="moderator-nav">
+        <Link href="/moderator" className="moderator-link" onClick={validateToken}>
           Home
         </Link>
-        <Link href="/admin/memberInfo" className="admin-link" onClick={validateToken}>
-          Members
+        <Link href="/moderator/profile" className="moderator-link" onClick={validateToken}>
+          Profile
         </Link>
-        <Link href="/admin/memberContact" className="admin-link" onClick={validateToken}>
-          Contact
+        <Link href="/moderator/clubs" className="moderator-link" onClick={validateToken}>
+          Clubs
         </Link>
-        <Link href="/admin/announcements" className="admin-link">
+        <Link href="/moderator/moderation" className="moderator-link">
+          Moderation
+        </Link>
+        <Link href="/moderator/announcements" className="moderator-link">
           Announcements
         </Link>
-        <Link href="/admin/reports" className="admin-link">
-          Reports
-        </Link>
       </nav>
-      <main className="admin-content">
+      <main className="user-content">
         {children}
       </main>
     </div>

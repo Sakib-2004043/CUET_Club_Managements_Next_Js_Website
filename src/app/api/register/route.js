@@ -48,7 +48,7 @@ export async function POST(req) {
       hall,
       mobile,
       clubsMember: [],
-      admin: "NO",
+      admin: "Member Only",
       clubsModerator: [],
       profileImage: imageBuffer, // Store image as buffer
     });
@@ -126,7 +126,8 @@ export async function PATCH(req) {
     return NextResponse.json(
       {
         message: 'Login successful.',
-        token
+        token,
+        admin: user.admin
       },{ status: 200 }
     );
   } catch (error) {

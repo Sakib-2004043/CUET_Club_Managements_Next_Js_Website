@@ -2,12 +2,17 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter, useParams } from 'next/navigation'; // Import useParams for dynamic routing
-import "./studentProfile.css";
-import Moderator from './moderator';
+import "./profile.css";
 
 const Profile = () => {
   const router = useRouter();
-  const { studentId } = useParams(); // Get studentId from dynamic route params
+  const data = JSON.parse(localStorage.getItem("STDID")); 
+  const studentId = data.studentId
+  const admin = data.admin
+
+  //console.log(data.studentId)
+
+
 
   // State to hold user data and image
   const [user, setUser] = useState(null);
@@ -55,11 +60,11 @@ const Profile = () => {
     const fetchMembership = async () => {
       try {
         const response = await fetch('/api/approval', {
-          method: 'POST',
+          method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ studentId }),
+          body: JSON.stringify({ studentId, admin }),
         });
 
         if (response.ok) {
@@ -99,17 +104,12 @@ const Profile = () => {
 
   }
 
-  const handleClose = () => {
-    setShowModeration(false); // Hide the Moderator component on cancel
-  };
-
   if (loading) return <div className="loading-spinner">Loading...</div>;
 
   if (!user) return <div className="error-message">User not found</div>;
 
   return (
     <div className="profile-page">
-      {showModeration && <Moderator studentId={studentId} onCut={handleClose}/>}
       <h1 className="profile-heading">User Profile</h1>
       <div className="profile-card">
         <div className="profile-image-container">

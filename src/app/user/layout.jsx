@@ -25,8 +25,11 @@ export default function subLayout({ children }) {
         const decodedData = jwtDecode(token);
         console.log("Admin : ", decodedData.admin);
 
-        if(decodedData.admin === "YES"){
+        if(decodedData.admin === "Admin"){
           router.push("/admin") // Redirect to user route
+        }
+        else if(decodedData.admin !== "Member Only"){
+          router.push("/moderator") // Redirect to user route
         }
         
       } 
@@ -54,8 +57,8 @@ export default function subLayout({ children }) {
         <Link href="/user/clubs" className="user-link" onClick={validateToken}>
           Clubs
         </Link>
-        <Link href="/user/settings" className="user-link">
-          Settings
+        <Link href="/user/announcements" className="user-link">
+          Announcements
         </Link>
         <Link href="/user/reports" className="user-link">
           Reports

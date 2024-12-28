@@ -28,12 +28,16 @@ const Login = () => {
 
         localStorage.setItem("token",data.token)
 
-        if (data.user?.admin === "YES") {
+        console.log(data)
+
+        if (data.admin === "Admin") {
           router.push("/admin");
-        } else if (data.user?.clubsModerator?.length > 0) {
-          router.push("/moderator");
-        } else {
+        } 
+        else if (data.admin === "Member Only") {
           router.push("/user");
+        } 
+        else {
+          router.push("/moderator");
         }
       } else {
         const error = await response.json();
