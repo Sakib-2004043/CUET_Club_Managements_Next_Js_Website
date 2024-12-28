@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import userRegs from "@/Database/models/registration"; // Mongoose User model
 import connectDB from "@/Database/connectDB";
 import jwt from 'jsonwebtoken';
+require('dotenv').config()
 
 export async function POST(req) {
   try {
@@ -76,10 +77,12 @@ export async function POST(req) {
 // Log In Part
 export async function PATCH(req) {
 
-  const JWT_SECRET = process.env.JWT_SECRET;
+  
 
   try {
     // Connect to the database
+    const JWT_SECRET = process.env.JWT_SECRET;
+
     await connectDB();
 
     // Parse the request body
