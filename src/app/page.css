@@ -1,0 +1,49 @@
+.header {
+  background-color: #f4f4f4;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #f4f4f4; /* Light gray background */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+
+
+.hero {
+  text-align: center;
+  padding: 2rem;
+  background-color: #eef;
+}
+.cta-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.features {
+  padding: 2rem;
+  background-color: #fff;
+}
+.feature-list {
+  display: flex;
+  justify-content: space-around;
+}
+.feature {
+  width: 30%;
+  text-align: center;
+}
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #333;
+  color: white;
+}

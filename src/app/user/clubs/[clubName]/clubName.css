@@ -1,0 +1,142 @@
+/* General container for the club page */
+.club-page-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #f8f9fa; /* Light gray background for better readability */
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: 'Roboto', Arial, sans-serif;
+}
+
+/* Club name title */
+.club-page-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #2d3436; /* Dark gray for a clean, professional look */
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Club additional information text */
+.club-page-info {
+  font-size: 1.2rem;
+  color: #636e72; /* Muted gray */
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+/* Back button */
+.club-back-button {
+  display: inline-block;
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #0984e3; /* Bright blue */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  margin-right: 15px;
+}
+
+.club-back-button:hover {
+  background-color: #0652dd; /* Darker blue on hover */
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.club-back-button:active {
+  background-color: #03316d; /* Even darker blue on click */
+  transform: scale(0.95);
+}
+
+/* Request button base styles */
+.club-request-button {
+  display: inline-block;
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  margin-left: 15px;
+}
+
+/* Specific styles for different membership statuses */
+
+/* Request to Join button */
+.request-join-button {
+  background-color: #00b894; /* Green */
+  color: white;
+}
+
+.request-join-button:hover {
+  background-color: #009376; /* Darker green on hover */
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Request Pending button */
+.request-pending-button {
+  background-color: #fdcb6e; /* Yellow */
+  color: black;
+}
+
+.request-pending-button:hover {
+  background-color: #e1a10d; /* Darker yellow on hover */
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Leave Club button */
+.leave-club-button {
+  background-color: #d63031; /* Red */
+  color: white;
+}
+
+.leave-club-button:hover {
+  background-color: #b02324; /* Darker red on hover */
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Default button (fallback) */
+.club-request-button {
+  background-color: #636e72; /* Neutral gray */
+  color: white;
+}
+
+.club-request-button:hover {
+  background-color: #52595f; /* Darker gray */
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .club-page-container {
+    padding: 15px;
+  }
+
+  .club-page-title {
+    font-size: 1.8rem;
+  }
+
+  .club-page-info {
+    font-size: 1rem;
+  }
+
+  .club-back-button,
+  .club-request-button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}

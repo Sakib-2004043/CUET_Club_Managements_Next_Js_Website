@@ -1,0 +1,150 @@
+/* admin.css */
+.admin-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+}
+
+.admin-title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.admin-section {
+  margin-bottom: 30px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.admin-section-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #555;
+  text-align: center;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.admin-table-header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: left;
+}
+
+.admin-table-row:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.admin-table-data {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.admin-button {
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.promote-button {
+  background-color: #28a745;
+  color: white;
+}
+
+.promote-button:hover {
+  background-color: #218838;
+}
+
+.demote-button {
+  background-color: #dc3545;
+  color: white;
+}
+
+.demote-button:hover {
+  background-color: #c82333;
+}
+
+.edit-club-button {
+  background-color: #007bff;
+  color: white;
+}
+
+.edit-club-button:hover {
+  background-color: #0056b3;
+}
+
+.delete-club-button {
+  background-color: #dc3545;
+  color: white;
+}
+
+.delete-club-button:hover {
+  background-color: #c82333;
+}
+
+.admin-club-list {
+  list-style: none;
+  padding: 0;
+}
+
+.admin-club-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.admin-club-name {
+  font-weight: bold;
+  color: #333;
+}
+
+.admin-announcement-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-announcement-textarea {
+  resize: none;
+  width: 100%;
+  height: 100px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 1rem;
+  font-family: Arial, sans-serif;
+}
+
+.announcement-button {
+  background-color: #007bff;
+  color: white;
+  font-size: 1rem;
+}
+
+.announcement-button:hover {
+  background-color: #0056b3;
+}
+
+.highlight {
+  font-weight: bold;
+  color:yellow;
+  background: black
+}

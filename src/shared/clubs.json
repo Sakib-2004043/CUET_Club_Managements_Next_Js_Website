@@ -1,0 +1,30 @@
+{
+  "clubs": [
+    "Central Students' Union",
+    "Computer Club",
+    "Debating Society",
+    "Green for Peace",
+    "CUET Career Club",
+    "Joyoddhoney",
+    "CUETJA",
+    "ASRRO",
+    "CUET Photographic Society",
+    "ACI-CUET Chapter",
+    "Robo Mechatronics Association (RMA)",
+    "Society of Petroleum Engineers (SPE)"
+  ],
+  "clubInfo": {
+    "Central Students' Union": "The primary student representative body at CUET, tasked with organizing events, addressing student concerns, and fostering a vibrant campus life. They play a crucial role in mediating between students and the administration.",
+    "Computer Club": "A hub for coding enthusiasts, developers, and tech-savvy students. The club organizes programming contests, hackathons, and workshops on cutting-edge technologies like AI, ML, and Blockchain.",
+    "Debating Society": "Encourages critical thinking and eloquence by hosting debates, public speaking competitions, and Model United Nations (MUN) conferences. A perfect platform for those passionate about expressing their views.",
+    "Green for Peace": "An environmental advocacy group dedicated to promoting sustainability and awareness. Activities include tree plantation drives, recycling programs, and awareness campaigns about climate change.",
+    "CUET Career Club": "Focuses on bridging the gap between academics and the professional world. They organize career counseling sessions, mock interviews, resume-building workshops, and alumni networking events.",
+    "Joyoddhoney": "A cultural club celebrating art, music, and literature. It organizes events like cultural evenings, poetry recitations, and exhibitions to showcase student talent in the arts.",
+    "CUETJA": "The CUET Journalistic Association, which provides a platform for aspiring journalists and writers. Activities include publishing newsletters, covering campus events, and offering journalism workshops.",
+    "ASRRO": "Astronomy and Space Research and Robotics Organization, dedicated to space exploration and robotics. Members participate in stargazing events, build robots, and work on space-related projects.",
+    "CUET Photographic Society": "A creative outlet for photography enthusiasts. The club hosts photo walks, exhibitions, and workshops to help members improve their skills and showcase their work.",
+    "ACI-CUET Chapter": "The official student chapter of the American Concrete Institute, focusing on advancements in civil engineering. Members participate in technical seminars, competitions, and research projects.",
+    "Robo Mechatronics Association (RMA)": "A club dedicated to the advancement of robotics, automation, and mechatronics. Activities include building robots, participating in competitions, and exploring emerging technologies.",
+    "Society of Petroleum Engineers (SPE)": "A global organization with a student chapter at CUET, aimed at petroleum engineering students. They host lectures, workshops, and networking events with industry professionals."
+  }
+}
