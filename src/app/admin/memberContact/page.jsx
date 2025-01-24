@@ -1,87 +1,3 @@
-// "use client";
-
-// import { useState, useEffect } from "react";
-// import { useRouter } from "next/navigation";
-// import "./contact.css";
-
-// const AdminInterface = () => {
-//   const [users, setUsers] = useState([]); // All users fetched from the API
-//   const [filteredUsers, setFilteredUsers] = useState([]); // Users to display after search
-//   const [searchContact, setSearchContact] = useState(""); // Search input text
-//   const router = useRouter(); // Next.js router for navigation
-
-//   useEffect(() => {
-
-//     // Fetch users when the component loads
-//     const fetchData = async () => {
-//       try {
-//         const usersResponse = await fetch("/api/admin");
-
-//         const usersData = await usersResponse.json();
-//         setUsers(usersData.data); // Set all users
-//         setFilteredUsers(usersData.data); // Initially show all users
-//         console.log(usersData);
-//       } catch (error) {
-//         console.error("Error fetching data:", error);
-//       }
-//     };
-
-//     fetchData();
-//   }, [router]);
-
-//   const handleSearchContact = (event) => {
-//     const searchValue = event.target.value.toLowerCase();
-//     setSearchContact(searchValue);
-
-//     // Filter users based on name, studentId, email, or mobile
-//     const filtered = users.filter((user) =>
-//       [user.name, user.studentId, user.email, user.mobile]
-//         .some((field) => field?.toLowerCase().includes(searchValue))
-//     );
-//     setFilteredUsers(filtered);
-//   };
-
-//   return (
-//     <div className="admin-container">
-      
-//       {/* Contact Section */}
-//       <div className="admin-section">
-//         <input
-//           type="text"
-//           value={searchContact}
-//           onChange={handleSearchContact}
-//           placeholder="Search..."
-//           className="admin-search-input"
-//         />
-
-//         <h2 className="admin-section-title">Student Contact</h2>
-//         <table className="admin-table">
-//           <thead>
-//             <tr>
-//               <th className="admin-table-header">Name</th>
-//               <th className="admin-table-header">StudentID</th>
-//               <th className="admin-table-header">Email</th>
-//               <th className="admin-table-header">Mobile</th>
-//             </tr>
-//           </thead>
-//           <tbody>
-//             {filteredUsers.map((user) => (
-//               <tr key={user._id} className="admin-table-row">
-//                 <td className="admin-table-data">{user.name}</td>
-//                 <td className="admin-table-data">{user.studentId}</td>
-//                 <td className="admin-table-data">{user.email}</td>
-//                 <td className="admin-table-data">{user.mobile}</td>
-//               </tr>
-//             ))}
-//           </tbody>
-//         </table>
-//       </div>
-
-//     </div>
-//   );
-// };
-
-// export default AdminInterface;
 
 "use client";
 
@@ -90,7 +6,7 @@ import { useRouter } from "next/navigation";
 import "./contact.css";
 import { checkToken } from "@/utils/auth";
 
-const AdminInterface = () => {
+const Contact = () => {
   const [users, setUsers] = useState([]); // All users fetched from the API
   const [filteredUsers, setFilteredUsers] = useState([]); // Users to display after search
   const [searchContact, setSearchContact] = useState(""); // Search input text
@@ -186,4 +102,4 @@ const AdminInterface = () => {
   );
 };
 
-export default AdminInterface;
+export default Contact;

@@ -60,8 +60,8 @@ export default function subLayout({ children }) {
         <Link href="/admin/announcements" className="admin-link">
           Announcements
         </Link>
-        <Link href="/admin" className="admin-link">
-          Reports
+        <Link href="/admin/approval" className="admin-link">
+          Approval
         </Link>
       </nav>
       <main className="admin-content">

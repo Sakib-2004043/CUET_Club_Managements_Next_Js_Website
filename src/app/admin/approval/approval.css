@@ -1,0 +1,153 @@
+/* General Container Styling */
+.approval-container {
+  font-family: "Arial", sans-serif;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.approval-title {
+  font-size: 2rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Search input */
+.admin-search-text {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  border: 1px solid #d1d5db; /* Neutral gray border */
+  border-radius: 8px;
+  outline: none;
+  box-sizing: border-box;
+  background-color: #f3f4f6; /* Light gray background for input */
+  transition: border-color 0.2s ease-in-out;
+}
+
+.admin-search-text:focus {
+  border-color: #4f46e5; /* Soft blue focus border */
+  background-color: #ffffff; /* White background on focus */
+}
+
+/* Table Styling */
+.approval-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.approval-table-header {
+  background-color: #007acc;
+  color: #fff;
+}
+
+.approval-table-header-cell {
+  padding: 15px;
+  text-align: left;
+  font-weight: bold;
+}
+
+.approval-table-row:nth-child(even) {
+  background-color: #f5f5f5;
+}
+
+.approval-table-row:hover {
+  background-color: #e8f4fd;
+  cursor: pointer;
+}
+
+.approval-table-cell {
+  padding: 15px;
+  text-align: left;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+/* Action Buttons */
+.action-cell {
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Button Styles */
+.accept-button {
+  background-color: #4caf50; /* Green */
+}
+
+.accept-button:hover {
+  background-color: #45a049;
+}
+
+.reject-button {
+  background-color: #f44336; /* Red */
+}
+
+.reject-button:hover {
+  background-color: #e53935;
+}
+
+.remove-button {
+  background-color: #ff9800; /* Orange */
+}
+
+.remove-button:hover {
+  background-color: #fb8c00;
+}
+
+.allow-button {
+  background-color: #03a9f4; /* Light Blue */
+}
+
+.allow-button:hover {
+  background-color: #0288d1;
+}
+
+.cancel-button {
+  background-color: #9c27b0; /* Purple */
+}
+
+.cancel-button:hover {
+  background-color: #7b1fa2;
+}
+
+/* Loading & Error States */
+.approval-loading,
+.approval-error {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #666;
+  margin-top: 20px;
+}
+.approval-search-input {
+  margin: 15px 0;
+  padding: 10px;
+  width: 100%;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.highlight {
+  background-color: yellow;
+  font-weight: bold;
+}
