@@ -1,14 +1,13 @@
 import { NextResponse } from "next/server";
 import Notification from "@/Database/models/notification";
 import connectDB from "@/Database/connectDB";
-meant
 
 // For 1 Increment
 export async function POST(req) {
   try {
     // Parse the JSON body from the request
     const body = await req.json();
-    const { clubName } = body;
+    const { clubName, count } = body;
 
     // Validate the input fields
     if (!clubName) {
@@ -24,12 +23,12 @@ export async function POST(req) {
     // Increment the notification count for the specified club
     const result = await Notification.findOneAndUpdate(
       {}, // Match any document since we assume a single global document for notifications
-      { $inc: { [clubName]: 1 } }, // Increment the count for the specified club
+      { $inc: { [clubName]: count } }, // Increment the count for the specified club
       { new: true, upsert: true } // Return the updated document and create one if none exists
     );
     const resultAdmin = await Notification.findOneAndUpdate(
       {}, // Match any document since we assume a single global document for notifications
-      { $inc: { ["Admin"]: 1 } }, // Increment the count for the Admin
+      { $inc: { ["Admin"]: count } }, // Increment the count for the Admin
       { new: true, upsert: true } // Return the updated document and create one if none exists
     );
 
@@ -58,7 +57,8 @@ export async function POST(req) {
     );
   }
 }
-// For 1 Decrement
+
+// For Getting Notification Count
 export async function PATCH(req) {
   try {
     // Parse the JSON body from the request
@@ -76,43 +76,42 @@ export async function PATCH(req) {
     // Connect to the database
     await connectDB();
 
-    // Increment the notification count for the specified club
-    const result = await Notification.findOneAndUpdate(
-      {}, // Match any document since we assume a single global document for notifications
-      { $inc: { [clubName]: -1 } }, // Decrement the count for the specified club
-      { new: true, upsert: true } // Return the updated document and create one if none exists
-    );
-    const resultAdmin = await Notification.findOneAndUpdate(
-      {}, // Match any document since we assume a single global document for notifications
-      { $inc: { ["Admin"]: -1 } }, // Decrement the count for the specified club
-      { new: true, upsert: true } // Return the updated document and create one if none exists
-    );
+    // Query the notification count for the specified club
+    const result = await Notification.findOne({});
 
-    // Check if the operation was successful
     if (!result) {
       return NextResponse.json(
-        { error: "Failed to update notification count" },
-        { status: 500 }
+        { error: "No notifications found" },
+        { status: 404 }
+      );
+    }
+    // Get the notification count for the specific club
+    const clubNotificationCount = result[clubName];
+
+    // If no count exists for the specified club, return 0
+    if (clubNotificationCount === undefined) {
+      return NextResponse.json(
+        { count: 0 },
+        { status: 200 }
       );
     }
 
-    // Return success response
+    // Return the notification count for the club
     return NextResponse.json(
-      {
-        message: `Notification count for "${clubName}" incremented successfully.`,
-        data: result,
-      },
+      { count: clubNotificationCount },
       { status: 200 }
     );
   } catch (error) {
     // Handle any unexpected errors
-    console.error("Error incrementing notification count:", error);
+    console.error("Error fetching notification count:", error);
     return NextResponse.json(
-      { error: "Error incrementing notification count", details: error.message },
+      { error: "Error fetching notification count", details: error.message },
       { status: 500 }
     );
   }
 }
+
+
 
 // For Setting 0
 export async function PUT(req) {
@@ -150,7 +149,7 @@ export async function PUT(req) {
     // Return success response
     return NextResponse.json(
       {
-        message: `Notification count for "${clubName}" incremented successfully.`,
+        message: `Notification count for "${clubName}" Set Zero successfully.`,
         data: result,
       },
       { status: 200 }

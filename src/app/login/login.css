@@ -87,21 +87,6 @@
   cursor: not-allowed;
 }
 
-/* Loader */
-.loader {
-  border: 3px solid #f3f3f3;
-  border-top: 3px solid #2d6a4f;
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
 /* Extra Information Section */
 .main-extra-info {
   background-color: #f4f8f2; /* Light background for contrast */
@@ -146,4 +131,22 @@
   content: "✔";
   margin-right: 0.5rem;
   color: #1b9e68; /* Slightly darker green for the checkmark */
+}
+
+/* Loader (Dotted Circle) */
+.loader {
+  border: 5px dotted #5d54b6; /* Dotted border */
+  border-radius: 50%;
+  width: 10px; /* Increase the size for a better view */
+  height: 10px;
+  animation: dottedSpin 0.1s infinite linear;
+}
+
+@keyframes dottedSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

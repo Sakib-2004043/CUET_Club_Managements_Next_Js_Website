@@ -1,18 +1,44 @@
 "use client";
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image'; // Import Image component
+import Image from 'next/image';
 import './layout.css'; // Assuming this CSS file exists in the same directory
 import { useRouter } from 'next/navigation';
 import { checkToken } from '@/utils/auth';
 import { jwtDecode } from 'jwt-decode'; // Corrected import for jwt-decode library
+import { setZeroNotification } from '@/utils/notification';
 
 export default function SubLayout({ children }) {
   const router = useRouter();
-  const logo = "/CuetLogo.png"; // Update with the correct file path and extension
+  const logo = "/CuetLogo.png"; 
+  const bell = "/bell.png";
 
-  // State for notifications
+  // State for notifications and club name
   const [notifications, setNotifications] = useState(0);
+  const [clubName, setClubName] = useState("");
+  const [rotate, setRotate] = useState(false); // State to trigger rotation
+  const [render, setRender] = useState(true)
+
+  const fetchNotifications = async (clubName) => {
+    try {
+      const response = await fetch("/api/notification", {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ clubName }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setNotifications(data.count); // Assuming the response contains a `count` field
+      } else {
+        console.error("Failed to fetch notifications");
+      }
+    } catch (error) {
+      console.error("Error fetching notifications:", error);
+    }
+  };
 
   const validateToken = async () => {
     const isValid = await checkToken(router);
@@ -33,6 +59,12 @@ export default function SubLayout({ children }) {
         } else if (decodedData.admin !== "Admin") {
           router.push("/moderator");
         }
+
+        // Save decoded club name to the state
+        setClubName(decodedData.admin); // Assuming `clubName` is available in the token
+
+        // Fetch the notification count
+        fetchNotifications(decodedData.admin);
       } catch (error) {
         console.error("Error decoding token:", error);
       }
@@ -41,21 +73,32 @@ export default function SubLayout({ children }) {
 
   useEffect(() => {
     validateToken();
-  }, [router]);
+  }, [router, render]);
+
+  useEffect(() => {
+    if (notifications > 0) {
+      setRotate(true); // Start the rotation animation when notifications > 0
+    } else {
+      setRotate(false); // Stop the rotation if no notifications
+    }
+  }, [notifications]);
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    router.push("/login")
-  }
+    router.push("/login");
+  };
 
-  // Dummy notification count for now, you can integrate with your notification logic
-  const toggleNotifications = () => setNotifications(notifications === 0 ? 5 : 0); // For demo purposes
+  const handleBellClick = () => {
+    setZeroNotification(clubName);
+    setRender(!render)
+    router.push("/admin/approval"); // Ensure this is an absolute path
+  };
 
   return (
     <div className="sub-layout">
       <header className="admin-header">
         <Image 
-          src="/CuetLogo.png" 
+          src={logo} 
           alt="CUET Logo" 
           width={60} 
           height={60} 
@@ -66,17 +109,22 @@ export default function SubLayout({ children }) {
           Welcome to CUET All Club Management - Admin Panel
         </h1>
         <div className="notification-container">
-          <div className="notification-bell-container" onClick={toggleNotifications}>
-            <i className={`fas fa-bell ${notifications > 0 ? "active" : ""}`}></i>
-            {notifications > 0 && (
-              <span className="notification-dot">{notifications}</span>
-            )}
+          <div className="notification-bell-container">
+            <Image 
+              src={bell} 
+              alt="Notification Bell" 
+              width={60} 
+              height={60} 
+              style={{ height: "auto", width: "auto" }} 
+              className={`bell ${rotate ? 'rotate' : ''}`} // Apply the rotating class when notifications > 0
+              onClick={handleBellClick} 
+            />
+            <span className="notification-dot">{notifications}</span>
           </div>
-          <span className='notification' onClick={toggleNotifications}>Notification</span>
+          <button className="log-out-button" onClick={handleLogout}>
+            Log Out
+          </button>
         </div>
-        <button className="log-out-button" onClick={handleLogout}>
-          Log Out
-        </button>
       </header>
 
       <nav className="admin-nav">

@@ -4,12 +4,7 @@ import "./user.css";
 
 const UserLanding = () => {
   return (
-    <div className="user-landing-page">
-      <header className="header">
-        <h1 className="title">Welcome to CUET Clubs!</h1>
-        <p className="subtitle">Explore, Collaborate, and Grow Together</p>
-      </header>
-      
+    <div className="user-landing-page">    
       <section className="section motto-section">
         <h2 className="section-title">Our Motto</h2>
         <p className="section-content">

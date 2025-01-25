@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import clubsData from "@/shared/clubs.json";
 
 import "./clubName.css";
-import { decreaseNotification, setNotification } from "@/utils/notification";
+import {userNotification } from "@/utils/notification";
 
 const ClubPage = ({ params }) => {
   const router = useRouter();
@@ -78,8 +78,12 @@ const ClubPage = ({ params }) => {
       const result = await response.json();
       setMembershipStatus(result.msg);
 
-      if (membershipStatus === "Request To Join") setNotification(decodedClubName);
-      if (membershipStatus === "Request Pending. Cancel") decreaseNotification(decodedClubName);
+      if (membershipStatus === "Request To Join") {
+        userNotification(decodedClubName, 1)
+      }
+      if (membershipStatus === "Request Pending. Cancel") {
+        userNotification(decodedClubName, -1)
+      }
     } catch (error) {
       console.error("Error during request submission:", error);
       alert("An error occurred. Please try again later.");
