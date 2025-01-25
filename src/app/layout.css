@@ -1,6 +1,11 @@
 /* layout.css */
-
-/* Footer Styles */
+body{
+  margin: 0px;
+  background: url('/cuetGate.jpg');  
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
 .footer {
   background-color: #1a1a1a; /* Dark background */
   color: #ffffff; /* White text */

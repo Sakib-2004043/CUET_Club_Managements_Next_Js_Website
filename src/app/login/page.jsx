@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import "./login.css";
+import Header from "../header";
 
 const Login = () => {
   const router = useRouter();
@@ -52,17 +53,7 @@ const Login = () => {
 
   return (
     <div className="main-login">
-      <header className="header">
-        <div className="header-content">
-          <h1 className="header-title">CUET Club Management System</h1>
-          <nav className="header-nav">
-            <Link href="/" className="header-link">Home</Link>
-            <Link href="/login" className="header-link">Login</Link>
-            <Link href="/register" className="header-link">Register</Link>
-            <Link href="/about" className="header-link">About</Link>
-          </nav>
-        </div>
-      </header>
+      <Header/>
       <div className="login-container">
         <form className="login-form" onSubmit={handleSubmit}>
           <h1 className="login-title">Login</h1>
@@ -110,15 +101,15 @@ const Login = () => {
         </form>
       </div>
       {/* Additional Information Section */}
-      <section className="extra-info">
-        <h2>Welcome to CUET Club Management</h2>
-        <p>Here, you can join, manage, and explore various clubs tailored to your interests. Connect with like-minded individuals and grow your network!</p>
-        <ul>
-          <li>✔ Stay updated with club announcements.</li>
+      <div className="main-extra-info">
+        <h2 className="extra-header">Welcome to CUET Club Management</h2>
+        <p className="extra-para">Here, you can join, manage, and explore various clubs tailored to your interests. Connect with like-minded individuals and grow your network!</p>
+        <ul className="extra-ul">
+          <li className="extra-li">✔ Stay updated with club announcements.</li>
           <li>✔ Participate in exciting events and activities.</li>
           <li>✔ Collaborate with other members and moderators.</li>
         </ul>
-      </section>
+      </div>
     </div>
   );
   

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import "./register.css";
+import Header from "../header";
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -76,20 +77,8 @@ const Signup = () => {
 
   return (
     <div className="main-sign-up">
-    {/* Header */}
-    <header className="header">
-        <div className="header-content">
-          <h1 className="header-title">CUET Club Management System</h1>
-          <nav className="header-nav">
-            <Link href="/" className="header-link">Home</Link>
-            <Link href="/login" className="header-link">Login</Link>
-            <Link href="/register" className="header-link">Register</Link>
-            <Link href="/about" className="header-link">About</Link>
-          </nav>
-        </div>
-      </header>
+      <Header/>
       <div className="signup-page">
-        
         <form className="signup-form" onSubmit={handleSubmit}>
         <h1 className="signup-title">Signup</h1>
           {/* Full Name */}

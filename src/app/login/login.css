@@ -1,180 +1,149 @@
-/* Container for the login form */
-.main-login{
-  background: url('/cuetGate1.jpg');  
-  background-size: cover;
-  background-position: center;
-}
-.header {
-  background: linear-gradient(90deg, #4caf50, #2ecc71); /* Green gradient */
-  color: white;
-  padding: 20px;
-  text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-}
-
-.header-title {
-  font-size: 2.5rem;
-  margin: 0;
-}
-
-.header-nav {
-  margin-top: 15px;
-}
-
-.header-link {
-  color: #fff;
-  text-decoration: none;
-  margin: 0 15px;
-  font-size: 1rem;
-  font-weight: bold;
-  transition: color 0.3s ease-in-out;
-}
-
-.header-link:hover {
-  color: #ffd700; /* Gold hover effect */
+/* General Styles */
+.main-login {
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
 }
 
 .login-container {
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  padding: 30px;
+  background-color: #e9f5e4;
+  padding: 3rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
 }
 
-/* Title of the login page */
 .login-title {
-  font-size: 24px;
-  font-weight: bold;
   text-align: center;
-  margin-bottom: 20px;
-  color: #333;
+  color: #2d6a4f;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-weight: bold;
 }
 
-/* Form styling */
-.login-form {
-  backdrop-filter: blur(30px); 
-  background-color: wheat;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-}
-
-/* Form group to group label and input */
+/* Form Fields */
 .form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
+  margin-bottom: 1.5rem;
 }
 
-/* Form labels */
 .form-label {
-  font-size: 14px;
-  color: #2e2776;
-  font-weight: bold;
-}
-
-.form-input {
-  padding: 10px 10px 10px 35px; /* Increased left padding to fit the icon */
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  transition: border-color 0.2s;
-  min-width: 300px;
-
-}
-
-/* Focused input style */
-.form-input:focus {
-  border-color: #007bff;
-  outline: none;
-}
-
-/* Submit button */
-.form-button {
-  padding: 10px;
-  font-size: 16px;
-  font-weight: bold;
-  color: #fff;
-  background-color: #007bff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-/* Submit button hover effect */
-.form-button:hover {
-  background-color: #0056b3;
-}
-
-/* Centering the text on the button */
-.form-button:focus {
-  outline: none;
-}
-
-/* Adding a hover effect for input fields */
-.form-input:hover {
-  border-color: #007bff;
+  font-size: 1.1rem;
+  color: #2d6a4f;
+  margin-bottom: 0.5rem;
+  display: block;
 }
 
 .input-wrapper {
   position: relative;
-  width: 100%;
 }
 
-/* Icon styling inside the input */
 .icon {
   position: absolute;
-  left: 10px; /* Position icon closer to the input's left edge */
+  left: 10px;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 16px;
-  color: #888;
+  font-size: 1.5rem;
+  color: #2d6a4f;
+}
+
+.form-input {
+  width: 85%;
+  padding: 0.8rem 1rem 0.8rem 2.5rem; /* Adjusted padding for icon */
+  font-size: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.form-input:focus {
+  border-color: #1b9e68; /* Darker green */
+  outline: none;
+}
+
+/* Button Styles */
+.form-button {
+  width: 100%;
+  padding: 1rem;
+  background-color: #2d6a4f;
+  color: white;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease, transform 0.2s ease-in-out;
+}
+
+.form-button:hover {
+  background-color: #1b9e68;
+  transform: translateY(-2px);
+}
+
+.form-button:disabled {
+  background-color: #a5d8a5;
+  cursor: not-allowed;
+}
+
+/* Loader */
+.loader {
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #2d6a4f;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 /* Extra Information Section */
-.extra-info {
-  backdrop-filter: blur(10px);
-  margin-top: 20px;
-  padding: 20px;
+.main-extra-info {
+  background-color: #f4f8f2; /* Light background for contrast */
+  padding: 2rem;
   border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  margin-top: 2rem;
   text-align: center;
+  font-family: 'Arial', sans-serif;
 }
 
-.extra-info h2 {
+.extra-header {
+  color: #2d6a4f; /* Deep green */
   font-size: 1.8rem;
-  color: #d3ffcc;
-  margin-bottom: 10px;
+  font-weight: bold;
+  margin-bottom: 1rem;
 }
 
-.extra-info p {
-  font-size: 1rem;
-  color: #000000;
-  margin-bottom: 15px;
+.extra-para {
+  font-size: 1.1rem;
+  color: #5d8f73; /* Softer green for text */
+  margin-bottom: 1.5rem;
 }
 
-.extra-info ul {
+.extra-ul {
   list-style-type: none;
   padding: 0;
+  margin: 0;
 }
 
-.extra-info ul li {
-  font-size: 1rem;
-  color: #000000;
-  margin: 5px 0;
+.extra-li {
+  font-size: 1.1rem;
+  color: #2d6a4f;
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
 }
 
-.extra-info ul li::before {
+.extra-li::before {
   content: "✔";
-  color: #2ecc71; /* Green checkmark */
-  margin-right: 10px;
+  margin-right: 0.5rem;
+  color: #1b9e68; /* Slightly darker green for the checkmark */
 }

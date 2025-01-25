@@ -2,23 +2,12 @@ import React from 'react';
 import Link from 'next/link';
 
 import "./page.css";
+import Header from './header';
 
 export default function LandingPage() {
   return (
     <div className="landing-page">
-      {/* Header */}
-      <header className="header">
-        <div className="header-content">
-          <h1 className="header-title">CUET Club Management System</h1>
-          <nav className="header-nav">
-            <Link href="/" className="header-link">Home</Link>
-            <Link href="/login" className="header-link">Login</Link>
-            <Link href="/register" className="header-link">Register</Link>
-            <Link href="/about" className="header-link">About</Link>
-          </nav>
-        </div>
-      </header>
-
+      <Header/>
       {/* Hero Section */}
       <section className="hero">
         <div className="hero-container">

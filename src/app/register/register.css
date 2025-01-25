@@ -1,151 +1,149 @@
-/* General Styling */
-
+/* General Styles */
+.main-sign-up {
+  font-family: 'Arial', sans-serif;
+  margin-top: 200px;
+}
 
 .signup-page {
-  font-family: 'Arial', sans-serif;
-  background: url('/cuetGate1.jpg');  
-  background-size: cover;
-  background-position: center;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  padding: 30px;
+  
+  max-width: 600px;
+  margin: 2rem auto;
+  background-color: #ccf5c9;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  font-weight: bolder;
 }
-
-.header {
-  background: linear-gradient(90deg, #4caf50, #2ecc71); /* Green gradient */
-  color: white;
-  padding: 20px;
-  text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-}
-
-.header-title {
-  font-size: 2.5rem;
-  margin: 0;
-}
-
-.header-nav {
-  margin-top: 15px;
-}
-
-.header-link {
-  color: #fff;
-  text-decoration: none;
-  margin: 0 15px;
-  font-size: 1rem;
-  font-weight: bold;
-  transition: color 0.3s ease-in-out;
-}
-
-.header-link:hover {
-  color: #ffd700; /* Gold hover effect */
-}
-
 
 .signup-title {
   font-size: 2rem;
-  color: #6a0dad;
   text-align: center;
-  margin-bottom: 20px;
+  color: #2d6a4f; /* Light green */
+  margin-bottom: 1rem;
 }
 
-.signup-form {
-  backdrop-filter: blur(10px); /* Apply a blur effect */
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow to make the form pop */
-}
-
-
+/* Form Fields */
 .form-group {
-  display: flex;
-  flex-direction: column;
+  margin-bottom: 1.5rem;
+  
 }
 
 .form-label {
-  font-weight: bold;
-  color: #8640b9;
-  margin-bottom: 5px;
+  font-size: 1.1rem;
+  color: #2d6a4f;
+  margin-bottom: 0.5rem;
+  display: block;
 }
 
+/* Input Fields */
 .form-input {
-  border: 2px solid #d8bfd8;
-  border-radius: 8px;
-  padding: 10px;
+  width: 90%;
+  padding: 0.8rem;
   font-size: 1rem;
-  transition: border-color 0.3s;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  transition: all 0.3s ease;
 }
 
 .form-input:focus {
-  border-color: #6a0dad;
+  border-color: #1b9e68; /* Darker green */
   outline: none;
-  box-shadow: 0 0 8px rgba(106, 13, 173, 0.5);
 }
 
-.image-preview-container {
-  display: flex;
-  justify-content: center;
-}
-
-.image-preview {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #6a0dad;
-  transition: transform 0.3s ease-in-out;
-}
-
-.image-preview:hover {
-  transform: scale(1.1);
-}
-
+/* Button Styles */
 .form-submit-button {
-  background: linear-gradient(90deg, #6a0dad, #c71585);
-  color: #ffffff;
+  margin-left: 25%;
+  width: 50%;
+  padding: 1rem;
+  background-color: #2d6a4f; /* Primary green */
+  color: white;
+  font-size: 1.2rem;
   border: none;
-  border-radius: 8px;
-  padding: 12px 20px;
-  font-size: 1rem;
-  font-weight: bold;
-  text-transform: uppercase;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background 0.3s, transform 0.2s ease-in-out;
+  transition: all 0.3s ease, transform 0.2s ease-in-out;
 }
 
 .form-submit-button:hover {
-  background: linear-gradient(90deg, #c71585, #6a0dad);
+  background-color: #1b9e68; /* Darker green on hover */
   transform: translateY(-2px);
 }
 
-.form-submit-button:active {
-  transform: translateY(0);
+.form-submit-button:disabled {
+  background-color: #a5d8a5; /* Light green when disabled */
+  cursor: not-allowed;
 }
 
-/* Processing Animation */
-@keyframes loadingAnimation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+/* File Input */
+.form-input[type="file"] {
+  padding: 0.5rem;
 }
 
-.processing {
-  background: linear-gradient(270deg, #6a0dad, #c71585, #4b0082, #ff1493);
-  background-size: 400% 400%;
-  animation: loadingAnimation 2s infinite;
-  color: #ffffff !important;
+.image-preview-container {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.image-preview {
+  max-width: 100%;
+  max-height: 200px;
+  border-radius: 10px;
+  border: 2px solid #ccc;
+  margin-top: 1rem;
+}
+
+/* Hover Effects for Form Inputs */
+.form-input:hover {
+  border-color: #28a745; /* Bright green on hover */
+}
+
+/* Header */
+.signup-header {
+  background-color: #2d6a4f;
+  color: white;
+  padding: 1.5rem;
+}
+
+.signup-header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.signup-header-title {
+  font-size: 2.2rem;
+}
+
+.signup-header-nav {
+  display: flex;
+  gap: 20px;
+}
+
+.signup-header-link {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s;
+}
+
+.signup-header-link:hover {
+  color: #e2e2e2;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .signup-page {
+    padding: 1.5rem;
+  }
+
+  .signup-title {
+    font-size: 1.8rem;
+  }
+
+  .form-input {
+    font-size: 1rem;
+  }
 }

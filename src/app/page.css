@@ -7,38 +7,6 @@
   background-color: #f9f9f9; /* Light background for contrast */
   color: #333; /* Default text color */
 }
-
-/* Header Styles */
-.header {
-  background: linear-gradient(90deg, #4caf50, #2ecc71); /* Green gradient */
-  color: white;
-  padding: 20px;
-  text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-}
-
-.header-title {
-  font-size: 2.5rem;
-  margin: 0;
-}
-
-.header-nav {
-  margin-top: 15px;
-}
-
-.header-link {
-  color: #fff;
-  text-decoration: none;
-  margin: 0 15px;
-  font-size: 1rem;
-  font-weight: bold;
-  transition: color 0.3s ease-in-out;
-}
-
-.header-link:hover {
-  color: #ffd700; /* Gold hover effect */
-}
-
 /* Hero Section */
 .hero {
   background: linear-gradient(135deg, #6a11cb, #2575fc); /* Purple to blue gradient */
