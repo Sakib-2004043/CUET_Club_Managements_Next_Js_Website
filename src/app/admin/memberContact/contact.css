@@ -1,150 +1,165 @@
-/* admin.css */
-.admin-container {
-  padding: 20px;
-  font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
-}
-
-.admin-title {
-  font-size: 2rem;
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 20px;
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f1f1f1; /* Lighter background for vibrancy */
   color: #333;
 }
 
-.admin-section {
-  margin-bottom: 30px;
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+/* Container Styles */
+.admin-container {
+  width: 100%;
+  padding: 30px;
+  background-color: #eff7e8;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  max-width: 1200px;
+  margin: auto;
 }
 
-.admin-section-title {
-  font-size: 1.5rem;
+/* Section Title */
+.section-title {
+  font-size: 2.2rem;
   font-weight: bold;
-  margin-bottom: 15px;
+  text-align: center;
+  color: #f39c12; /* Bright Orange for excitement */
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Light shadow for emphasis */
+}
+
+/* Section Description */
+.section-description {
+  font-size: 1.1rem;
   color: #555;
   text-align: center;
+  margin-bottom: 30px;
+  line-height: 1.5;
 }
 
-.admin-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 20px;
-}
-
-.admin-table-header {
-  background-color: #333;
-  color: #fff;
-  padding: 10px;
-  text-align: left;
-}
-
-.admin-table-row:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
-.admin-table-data {
-  padding: 10px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-}
-
-.admin-button {
-  padding: 8px 12px;
-  font-size: 0.9rem;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-right: 5px;
-}
-
-.promote-button {
-  background-color: #28a745;
-  color: white;
-}
-
-.promote-button:hover {
-  background-color: #218838;
-}
-
-.demote-button {
-  background-color: #dc3545;
-  color: white;
-}
-
-.demote-button:hover {
-  background-color: #c82333;
-}
-
-.edit-club-button {
-  background-color: #007bff;
-  color: white;
-}
-
-.edit-club-button:hover {
-  background-color: #0056b3;
-}
-
-.delete-club-button {
-  background-color: #dc3545;
-  color: white;
-}
-
-.delete-club-button:hover {
-  background-color: #c82333;
-}
-
-.admin-club-list {
-  list-style: none;
-  padding: 0;
-}
-
-.admin-club-item {
+/* Search Section */
+.search-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  padding: 15px;
+  background-color: #1dd1a1; /* Light yellow background */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.admin-club-name {
-  font-weight: bold;
-  color: #333;
-}
-
-.admin-announcement-form {
-  display: flex;
-  flex-direction: column;
-}
-
-.admin-announcement-textarea {
-  resize: none;
+.search-input {
   width: 100%;
-  height: 100px;
-  margin-bottom: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 10px;
+  padding: 12px;
   font-size: 1rem;
-  font-family: Arial, sans-serif;
+  border-radius: 8px;
+  border: 1px solid #ffbc00; /* Vibrant yellow border */
+  background-color: #fff9e6;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
 }
 
-.announcement-button {
-  background-color: #007bff;
+.search-input:focus {
+  border-color: #f39c12; /* Vibrant orange on focus */
+  box-shadow: 0 0 8px rgba(243, 156, 18, 0.5);
+}
+
+/* Table Styles */
+.contact-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-weight: bolder;
+}
+
+.table-header {
+  background-color: #1dd1a1; /* Vibrant Orange for table header */
   color: white;
-  font-size: 1rem;
-}
-
-.announcement-button:hover {
-  background-color: #0056b3;
-}
-
-.highlight {
   font-weight: bold;
-  color:yellow;
-  background: black
+  padding: 16px;
+  text-align: left;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
+
+.table-row {
+  transition: all 0.3s ease-in-out;
+}
+
+.table-row:hover {
+  background-color: #f1f1f1; /* Light grey hover effect */
+  transform: scale(1.02);
+}
+
+.table-data {
+  padding: 16px;
+  text-align: left;
+  font-size: 1rem;
+  border-bottom: 1px solid #ddd;
+  color: #555;
+}
+
+.table-data.highlight {
+  font-weight: bold;
+  color: #f39c12; /* Highlight color matching the title */
+}
+
+.table-row:nth-child(odd) {
+  background-color: #fafafa; /* Light alternating row color */
+}
+
+.table-row:nth-child(even) {
+  background-color: #ffffff; /* Alternating row color */
+}
+
+/* Highlighting Search Matches */
+.highlight {
+  background-color: #ffeb3b; /* Bright yellow for highlighted text */
+  color: #333;
+  padding: 2px 5px;
+  border-radius: 4px;
+}
+
+/* Card-like Design for Rows */
+.table-row {
+  cursor: pointer;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.table-data {
+  padding: 15px 20px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.table-data:hover {
+  background-color: #f39c12; /* Table cell hover effect */
+  color: white;
+}
+
+.table-row:hover .table-data {
+  background-color: #3de41b; /* Table row hover effect */
+  color: white;
+}
+
+/* Animation for Table Row Hover */
+@keyframes tableRowHover {
+  0% {
+    background-color: #ffffff;
+    transform: scale(1);
+  }
+  100% {
+    background-color: #ffeb3b; /* Light yellow when hovered */
+    transform: scale(1.05);
+  }
+}
+
+.table-row:hover {
+  animation: tableRowHover 0.3s ease-out;
 }

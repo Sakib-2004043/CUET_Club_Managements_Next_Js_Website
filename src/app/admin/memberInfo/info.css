@@ -1,116 +1,115 @@
 /* info.css */
 
-/* Container for the admin interface */
+/* Container styles */
 .admin-container {
-  padding: 20px;
   font-family: Arial, sans-serif;
-  background-color: #f9fafb; /* Very light gray background */
-}
-
-/* Section container */
-.admin-section {
-  margin-bottom: 30px;
-  background: #ffffff; /* White background */
-  border: 1px solid #e0e0e0; /* Light border */
-  border-radius: 12px; /* Rounded corners */
+  margin: 20px auto;
   padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  max-width: 1200px;
+  background-color: #f0fdf4; /* Light green background */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Search input */
+/* Section styles */
+.admin-section {
+  text-align: center;
+}
+
+.admin-section-title {
+  font-size: 2rem;
+  color: #065f46; /* Dark green */
+  margin: 20px 0;
+}
+
+/* Search input styles */
 .admin-search-input {
-  width: 100%;
-  padding: 12px;
+  font-weight: bolder;
+  width: 96%;
+  padding: 10px;
+  border: 2px solid #34d399; /* Light green border */
+  border-radius: 5px;
   font-size: 1rem;
-  margin-bottom: 20px;
-  border: 1px solid #d1d5db; /* Neutral gray border */
-  border-radius: 8px;
   outline: none;
-  box-sizing: border-box;
-  background-color: #f3f4f6; /* Light gray background for input */
-  transition: border-color 0.2s ease-in-out;
+  transition: border-color 0.3s;
+  margin-bottom: 20px;
 }
 
 .admin-search-input:focus {
-  border-color: #4f46e5; /* Soft blue focus border */
-  background-color: #ffffff; /* White background on focus */
+  border-color: #065f46; /* Dark green border on focus */
 }
 
-/* Title for each section */
-.admin-section-title {
-  font-size: 1.8rem;
-  font-weight: bold;
-  margin-bottom: 20px;
-  text-align: center;
-  color: #374151; /* Neutral dark gray text */
-}
-
-/* Table container */
+/* Table styles */
 .admin-table {
+  font-weight: bolder;
   width: 100%;
   border-collapse: collapse;
-  border-radius: 12px;
-  overflow: hidden; /* Rounded corners on the table */
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  margin-top: 20px;
 }
 
-/* Table header cells */
 .admin-table-header {
-  background-color: #4f46e5; /* Soft blue background */
-  color: #ffffff; /* White text */
-  padding: 14px;
-  text-align: left;
+  background-color: #34d399; /* Light green for headers */
+  color: white;
+  padding: 10px;
   font-weight: bold;
-  font-size: 1.1rem;
-  border: 1px solid #4f46e5; /* Matching border */
+  text-align: left;
 }
 
-/* Table rows with alternating colors */
 .admin-table-row:nth-child(even) {
-  background-color: #f3f4f6; /* Light gray for alternating rows */
+  background-color: #d1fae5; /* Lightest green for even rows */
 }
 
 .admin-table-row:nth-child(odd) {
-  background-color: #ffffff; /* White for alternating rows */
+  background-color: #f0fdf4; /* Light green for odd rows */
 }
 
-/* Hover effect on table rows */
-.admin-table-row:hover {
-  background-color: #e5e7eb; 
-  cursor: pointer;
-}
-
-/* Table data cells */
 .admin-table-data {
-  padding: 14px;
+  padding: 10px;
+  border: 1px solid #e5e7eb; /* Light gray borders */
   text-align: left;
-  border-bottom: 1px solid #e5e7eb; /* Light bottom border */
-  font-size: 1rem;
-  color: #4b5563; /* Neutral dark text */
+  vertical-align: middle;
 }
 
-/* Profile image styling */
+.admin-table-row:hover {
+  background-color: #a7f3d0; /* Slightly darker green on hover */
+  cursor: pointer; /* Pointer cursor to indicate row clickability */
+}
+
+/* Profile Image Styles */
 .admin-profile-image {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%; /* Circular image */
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #d1d5db; /* Light gray border */
-  background-color: #f9fafb; /* Fallback background in case of no image */
 }
 
-/* Placeholder text when no image is available */
 .no-image-text {
-  font-size: 0.9rem;
-  color: #9ca3af; /* Neutral light gray text */
-  text-align: center;
+  font-size: 0.8rem;
+  color: #6b7280; /* Neutral gray text for no image */
 }
 
-/* Highlighted text in search results */
+/* Highlight matches */
 .highlight {
+  background-color: #51ee9d; /* Lightest green */
   font-weight: bold;
-  background-color: #4b5563; /* Soft yellow highlight */
-  color: #fef3c7; /* Neutral dark text for readability */
-  padding: 2px 2px; /* Add slight padding for better visibility */
-  border-radius: 4px; /* Rounded corners for the highlight */
+  border-radius: 3px;
+  padding: 0 2px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .admin-search-input {
+    font-size: 0.9rem;
+  }
+
+  .admin-table-header,
+  .admin-table-data {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  .admin-profile-image {
+    width: 30px;
+    height: 30px;
+  }
 }

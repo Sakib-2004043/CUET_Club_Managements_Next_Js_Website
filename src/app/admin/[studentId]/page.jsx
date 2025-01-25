@@ -110,8 +110,9 @@ const Profile = () => {
   return (
     <div className="profile-page">
       {showModeration && <Moderator studentId={studentId} onCut={handleClose}/>}
-      <h1 className="profile-heading">User Profile</h1>
+      
       <div className="profile-card">
+        <h1 className="profile-heading">User Profile</h1>
         <div className="profile-image-container">
           {profileImage ? (
             <div className="profile-image">
@@ -128,14 +129,42 @@ const Profile = () => {
             Update Moderator Status
         </button>
         <div className="profile-info">
-          <p className="profile-info-item"><strong>Name:</strong> {user.name}</p>
-          <p className="profile-info-item"><strong>Student ID:</strong> {user.studentId}</p>
-          <p className="profile-info-item"><strong>Email:</strong> {user.email}</p>
-          <p className="profile-info-item"><strong>Department:</strong> {user.department}</p>
-          <p className="profile-info-item"><strong>Mobile:</strong> {user.mobile}</p>
-          <p className="profile-info-item"><strong>Batch:</strong> {user.batch}</p>
-          <p className="profile-info-item"><strong>Hall:</strong> {user.hall}</p>
-          <p className="profile-info-item"><strong>Clubs Moderator:</strong> {user.admin}</p>
+          <table className="profile-info-table">
+            <tbody>
+              <tr>
+                <td><strong>Name:</strong></td>
+                <td>{user.name}</td>
+              </tr>
+              <tr>
+                <td><strong>Student ID:</strong></td>
+                <td>{user.studentId}</td>
+              </tr>
+              <tr>
+                <td><strong>Email:</strong></td>
+                <td>{user.email}</td>
+              </tr>
+              <tr>
+                <td><strong>Department:</strong></td>
+                <td>{user.department}</td>
+              </tr>
+              <tr>
+                <td><strong>Mobile:</strong></td>
+                <td>{user.mobile}</td>
+              </tr>
+              <tr>
+                <td><strong>Batch:</strong></td>
+                <td>{user.batch}</td>
+              </tr>
+              <tr>
+                <td><strong>Hall:</strong></td>
+                <td>{user.hall}</td>
+              </tr>
+              <tr>
+                <td><strong>Clubs Moderator:</strong></td>
+                <td>{user.admin}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
 

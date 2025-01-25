@@ -10,20 +10,27 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <footer className="footer">
-          <nav className="footer-nav">
-            <Link href="/" className="footer-link">
-              Home
-            </Link>
-            <Link href="/login" className="footer-link">
-              Login
-            </Link>
-            <Link href="/register" className="footer-link">
-              Signup
-            </Link>
-          </nav>
-        </footer>
         {children}
+        <footer className="footer">
+          <div className="footer-content">
+            
+            <div className="footer-contact">
+              <p className="contact-info">Email: info@example.com</p>
+              <p className="contact-info">Phone: +1-234-567-890</p>
+              <p className="contact-info">Address: 123 Main St, City, Country</p>
+            </div>
+            
+            <div className="footer-links">
+              <Link href="/about" className="footer-link">About Us</Link>
+              <Link href="/contact" className="footer-link">Contact</Link>
+              <Link href="/privacy" className="footer-link">Privacy Policy</Link>
+            </div>
+          </div>
+          <div className="container">
+            <p>&copy; 2024 CUET Club Management System</p>
+            <p>Chittagong University of Engineering & Technology</p>
+          </div>
+        </footer>
       </body>
     </html>
   );

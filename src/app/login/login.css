@@ -1,12 +1,49 @@
 /* Container for the login form */
-.login-container {
-  width: 100%;
-  max-width: 400px;
-  margin: 50px auto;
+.main-login{
+  background: url('/cuetGate1.jpg');  
+  background-size: cover;
+  background-position: center;
+}
+.header {
+  background: linear-gradient(90deg, #4caf50, #2ecc71); /* Green gradient */
+  color: white;
   padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.header-title {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.header-nav {
+  margin-top: 15px;
+}
+
+.header-link {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+.header-link:hover {
+  color: #ffd700; /* Gold hover effect */
+}
+
+.login-container {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  padding: 30px;
 }
 
 /* Title of the login page */
@@ -20,9 +57,14 @@
 
 /* Form styling */
 .login-form {
+  backdrop-filter: blur(30px); 
+  background-color: wheat;
   display: flex;
   flex-direction: column;
   gap: 15px;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
 }
 
 /* Form group to group label and input */
@@ -35,17 +77,18 @@
 /* Form labels */
 .form-label {
   font-size: 14px;
-  color: #555;
+  color: #2e2776;
   font-weight: bold;
 }
 
-/* Input fields */
 .form-input {
-  padding: 10px;
+  padding: 10px 10px 10px 35px; /* Increased left padding to fit the icon */
   font-size: 14px;
   border: 1px solid #ccc;
   border-radius: 4px;
   transition: border-color 0.2s;
+  min-width: 300px;
+
 }
 
 /* Focused input style */
@@ -80,4 +123,58 @@
 /* Adding a hover effect for input fields */
 .form-input:hover {
   border-color: #007bff;
+}
+
+.input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* Icon styling inside the input */
+.icon {
+  position: absolute;
+  left: 10px; /* Position icon closer to the input's left edge */
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #888;
+}
+
+/* Extra Information Section */
+.extra-info {
+  backdrop-filter: blur(10px);
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.extra-info h2 {
+  font-size: 1.8rem;
+  color: #d3ffcc;
+  margin-bottom: 10px;
+}
+
+.extra-info p {
+  font-size: 1rem;
+  color: #000000;
+  margin-bottom: 15px;
+}
+
+.extra-info ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.extra-info ul li {
+  font-size: 1rem;
+  color: #000000;
+  margin: 5px 0;
+}
+
+.extra-info ul li::before {
+  content: "✔";
+  color: #2ecc71; /* Green checkmark */
+  margin-right: 10px;
 }

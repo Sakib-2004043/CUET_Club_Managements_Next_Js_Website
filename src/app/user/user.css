@@ -1,132 +1,84 @@
-/* General Styles */
-body {
-  margin: 0;
-  font-family: 'Arial', sans-serif;
-  background-color: #f7fafc; /* Light gray background */
-}
 
-/* Header */
-header {
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-header h1 {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #333;
-}
-
-header p {
-  font-size: 1rem;
-  color: #555;
-  margin-top: 5px;
-}
-
-/* Quick Access Section */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  margin-bottom: 40px;
-}
-
-.grid > div {
+.user-landing-page {
+  max-width: 1200px;
+  margin: 20px auto;
   padding: 20px;
+  background-color: #ffffff;
   border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  border: 3px solid #8a2be2; /* Violet border */
+}
+
+/* Header Styling */
+.header {
   text-align: center;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.grid > div:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-}
-
-.grid .bg-blue-500 {
-  background-color: #4299e1; /* Tailwind's blue-500 */
-  color: white;
-}
-
-.grid .bg-green-500 {
-  background-color: #48bb78; /* Tailwind's green-500 */
-  color: white;
-}
-
-.grid .bg-purple-500 {
-  background-color: #9f7aea; /* Tailwind's purple-500 */
-  color: white;
-}
-
-.grid .bg-yellow-500 {
-  background-color: #ecc94b; /* Tailwind's yellow-500 */
-  color: white;
-}
-
-/* Announcements Section */
-section h2 {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 15px;
-  color: #333;
-}
-
-.announcements {
-  background-color: #fff;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #8a2be2; /* Violet background */
+  border-radius: 10px 10px 0 0;
+  color: #fff;
 }
 
-.announcements ul {
-  list-style-type: none;
-  padding: 0;
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
   margin: 0;
 }
 
-.announcements li {
+.subtitle {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+/* Section Styling */
+.section {
+  margin: 30px 0;
+  padding: 20px;
+  background: linear-gradient(to bottom, #ffebcd, #ffe4e1); /* Gradient background */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-left: 5px solid #8a2be2;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #8a2be2; /* Violet color */
   margin-bottom: 10px;
-  border-bottom: 1px solid #e2e8f0;
-  padding-bottom: 10px;
 }
 
-.announcements li p {
+.section-content {
+  font-size: 1.1rem;
+  color: #2f4f4f; /* Dark slate gray */
+  line-height: 1.8;
+}
+
+.work-list {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.work-list li {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/* Footer Styling */
+.footer {
+  text-align: center;
+  padding: 15px;
+  border-radius: 0 0 10px 10px;
+  color: #fff;
+  margin-top: 20px;
+}
+
+.footer-text {
+  font-size: 1.2rem;
   margin: 0;
 }
 
-.announcements li p:first-child {
-  color: #333;
-}
-
-.announcements li p:last-child {
-  color: #999;
-  font-size: 0.875rem;
-}
-
-/* User Info Section */
-.user-info {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.user-info p {
-  margin: 10px 0;
-  font-size: 1rem;
-  color: #555;
-}
-
-.user-info p strong {
-  color: #333;
-}
-
-/* Footer */
-footer {
-  margin-top: 30px;
-  text-align: center;
-  color: #666;
-  font-size: 0.875rem;
+/* Hover Effects */
+.section:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease-in-out;
 }

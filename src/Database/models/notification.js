@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const NotificationSchema = new mongoose.Schema({
-  "Central Students' Union": { type: Number, default: 0 },
+  "Admin": { type: Number, default: 0 },
   "Computer Club": { type: Number, default: 0 },
   "Debating Society": { type: Number, default: 0 },
   "Green for Peace": { type: Number, default: 0 },

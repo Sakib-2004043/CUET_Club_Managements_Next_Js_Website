@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect } from "react";
@@ -10,7 +9,8 @@ const Contact = () => {
   const [users, setUsers] = useState([]); // All users fetched from the API
   const [filteredUsers, setFilteredUsers] = useState([]); // Users to display after search
   const [searchContact, setSearchContact] = useState(""); // Search input text
-  const router = useRouter(); // Next.js router for navigation
+  const router = useRouter();
+  const render = useState(false)
 
   useEffect(() => {
     //checkToken(router)
@@ -68,31 +68,37 @@ const Contact = () => {
     <div className="admin-container">
       {/* Contact Section */}
       <div className="admin-section">
-        <input
-          type="text"
-          value={searchContact}
-          onChange={handleSearchContact}
-          placeholder="Search..."
-          className="admin-search-input"
-        />
+        <div className="search-container">
+          <input
+            type="text"
+            value={searchContact}
+            onChange={handleSearchContact}
+            placeholder="Search by Name, StudentID, Email, or Mobile..."
+            className="search-input"
+          />
+        </div>
 
-        <h2 className="admin-section-title">Student Contact</h2>
-        <table className="admin-table">
+        <h2 className="section-title">Student Contact Directory</h2>
+        <p className="section-description">
+          Here you can find the contact details of all students. You can search using any of the fields like name, student ID, email, or mobile.
+        </p>
+
+        <table className="contact-table">
           <thead>
             <tr>
-              <th className="admin-table-header">Name</th>
-              <th className="admin-table-header">StudentID</th>
-              <th className="admin-table-header">Email</th>
-              <th className="admin-table-header">Mobile</th>
+              <th className="table-header">Name</th>
+              <th className="table-header">StudentID</th>
+              <th className="table-header">Email</th>
+              <th className="table-header">Mobile</th>
             </tr>
           </thead>
           <tbody>
             {filteredUsers.map((user) => (
-              <tr key={user._id} className="admin-table-row">
-                <td className="admin-table-data">{highlightMatch(user.name)}</td>
-                <td className="admin-table-data">{highlightMatch(user.studentId)}</td>
-                <td className="admin-table-data">{highlightMatch(user.email)}</td>
-                <td className="admin-table-data">{highlightMatch(user.mobile)}</td>
+              <tr key={user._id} className="table-row">
+                <td className="table-data">{highlightMatch(user.name)}</td>
+                <td className="table-data">{highlightMatch(user.studentId)}</td>
+                <td className="table-data">{highlightMatch(user.email)}</td>
+                <td className="table-data">{highlightMatch(user.mobile)}</td>
               </tr>
             ))}
           </tbody>

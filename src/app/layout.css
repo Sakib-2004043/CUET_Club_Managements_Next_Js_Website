@@ -1,22 +1,52 @@
+/* layout.css */
+
+/* Footer Styles */
 .footer {
-  text-align: center;
-  margin-top: 20px;
-  padding: 10px;
-  background-color: #f8f9fa;
+  background-color: #1a1a1a; /* Dark background */
+  color: #ffffff; /* White text */
+  padding: 20px 40px; /* Space around the footer content */
+  border-top: 1px solid #333; /* Subtle border at the top */
 }
 
-.footer-nav {
-  display: inline-block;
+.footer-content {
+  display: flex;
+  justify-content: space-between; /* Spread contact info and links evenly */
+  align-items: center; /* Center vertically */
+  margin-bottom: 20px;
+}
+
+.footer-contact {
+  text-align: left; /* Align contact info to the left */
+}
+
+.contact-info {
+  margin: 5px 0; /* Space between contact details */
+  font-size: 14px; /* Fixed font size for readability */
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px; /* Spacing between links */
 }
 
 .footer-link {
-  margin: 0 10px;
-  text-decoration: none;
-  color: #007bff;
-  font-weight: bold;
+  color: #f1c40f; /* Gold color for links */
+  text-decoration: none; /* Remove underline */
+  font-weight: 500; /* Medium font weight for emphasis */
+  transition: color 0.3s ease; /* Smooth hover effect */
 }
 
 .footer-link:hover {
-  text-decoration: underline;
-  color: #0056b3;
+  color: #e67e22; /* Orange color on hover */
+}
+
+/* Container Section */
+.container {
+  text-align: center; /* Center-align text */
+  font-size: 13px; /* Slightly smaller font for copyright text */
+  color: #bbbbbb; /* Light gray for subtlety */
+}
+
+.container p {
+  margin: 5px 0; /* Space between paragraphs */
 }

@@ -1,33 +1,115 @@
+/* General Page Styling */
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  font-family: "Arial", sans-serif;
 }
 
-.user-title {
-  text-align: center;
-  margin: 20px 0;
-  font-size: 24px;
+.sub-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: url('/go2.jpg');  
+  background-size: cover;
+  background-position: center;
+}
+
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #4c4cff; /* Blue background for header */
+  color: #fff;
+  border-bottom: 3px solid #333;
+}
+
+/* Title Styling */
+.h1-div {
+  flex: 1;
+}
+
+.header-title {
+  font-size: 1.8rem;
+  margin: 0;
+  padding: 0;
+  color: #fff; /* White title text */
+}
+
+/* Navigation Styling */
+.link-div {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
 }
 
 .user-nav {
   display: flex;
   justify-content: center;
-  background-color: #f4f4f4;
-  padding: 10px 0;
-  margin: 0;
-  border-bottom: 2px solid #ddd;
+  align-items: center;
+  gap: 15px;
+  margin-top: 10px;
 }
 
 .user-link {
-  margin: 0 15px;
   text-decoration: none;
-  color: #333;
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 1rem;
+  color: white;
+  padding: 10px 15px;
+  border: 2px solid white;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .user-link:hover {
-  color: #0070f3;
-  border-bottom: 2px solid #0070f3;
+  background-color: white;
+  color: #2575fc;
+  transform: scale(1.05);
+}
+
+.logout-button {
+  padding: 10px 15px;
+  background-color: #e63946;
+  color: white;
+  font-size: 1rem;
+  border: 2px solid #e63946;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.3s;
+}
+
+.logout-button:hover {
+  background-color: white;
+  color: #e63946;
+  transform: scale(1.05);
+}
+
+/* Content Area */
+.user-content {
+  flex: 1;
+  padding: 20px;
+  color: #333; /* Dark text for content */
+}
+
+/* Up and Down Behavior on Shrink */
+@media (max-width: 768px) {
+  .header-section {
+    flex-direction: column; /* Stack the title and links vertically */
+    align-items: center;
+    text-align: center;
+  }
+
+  .h1-div {
+    margin-bottom: 10px;
+  }
+
+  .link-div {
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .user-nav {
+    flex-wrap: wrap; /* Wrap links in case of overflow */
+    justify-content: center;
+  }
 }

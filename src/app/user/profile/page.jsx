@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { jwtDecode } from 'jwt-decode'; // Import jwt-decode library
 
-import "./profile.css"
+import "./profile.css";
 
 const Profile = () => {
   const router = useRouter();
@@ -68,32 +68,62 @@ const Profile = () => {
     fetchUserData();
   }, [token, router]);
 
-  if (loading) return <div className="loading-spinner">Loading...</div>;
+  if (loading) return <div className="profile-loading">Loading...</div>;
 
-  if (!user) return <div className="error-message">User not found</div>;
+  if (!user) return <div className="profile-error">User not found</div>;
 
   return (
     <div className="profile-page">
-      <h1 className="profile-heading">User Profile</h1>
-      <div className="profile-card">
-        <div className="profile-image-container">
-          {profileImage ? (
-            <div className="profile-image">
-              <img src={profileImage} alt="Profile" className="profile-img" />
+      <header className="profile-header">
+        <h1 className="profile-title">User Profile</h1>
+      </header>
+
+      <div className="profile-content">
+        <div className="profile-card">
+          {/* Profile Image Section */}
+          <div className="profile-image-section">
+            {profileImage ? (
+              <img src={profileImage} alt="Profile" className="profile-image" />
+            ) : (
+              <div className="profile-no-image">No Profile Image</div>
+            )}
+          </div>
+
+          {/* User Information Section */}
+          <div className="profile-details">
+            <div className="profile-detail">
+              <span className="profile-label">Name:</span>
+              <span className="profile-value">{user.name}</span>
             </div>
-          ) : (
-            <p className="no-image-message">No profile image available</p>
-          )}
-        </div>
-        <div className="profile-info">
-          <p className="profile-info-item"><strong>Name:</strong> {user.name}</p>
-          <p className="profile-info-item"><strong>Student ID:</strong> {user.studentId}</p>
-          <p className="profile-info-item"><strong>Email:</strong> {user.email}</p>
-          <p className="profile-info-item"><strong>Department:</strong> {user.department}</p>
-          <p className="profile-info-item"><strong>Mobile:</strong> {user.mobile}</p>
-          <p className="profile-info-item"><strong>Batch:</strong> {user.batch}</p>
-          <p className="profile-info-item"><strong>Hall:</strong> {user.hall}</p>
-          <p className="profile-info-item"><strong>Admin:</strong> {user.admin}</p>
+            <div className="profile-detail">
+              <span className="profile-label">Student ID:</span>
+              <span className="profile-value">{user.studentId}</span>
+            </div>
+            <div className="profile-detail">
+              <span className="profile-label">Email:</span>
+              <span className="profile-value">{user.email}</span>
+            </div>
+            <div className="profile-detail">
+              <span className="profile-label">Department:</span>
+              <span className="profile-value">{user.department}</span>
+            </div>
+            <div className="profile-detail">
+              <span className="profile-label">Mobile:</span>
+              <span className="profile-value">{user.mobile}</span>
+            </div>
+            <div className="profile-detail">
+              <span className="profile-label">Batch:</span>
+              <span className="profile-value">{user.batch}</span>
+            </div>
+            <div className="profile-detail">
+              <span className="profile-label">Hall:</span>
+              <span className="profile-value">{user.hall}</span>
+            </div>
+            <div className="profile-detail">
+              <span className="profile-label">Admin:</span>
+              <span className="profile-value">{user.admin}</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>

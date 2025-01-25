@@ -1,15 +1,16 @@
 "use client";
 import { useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image'; // Import Image component
 import './layout.css'; // Assuming this CSS file exists in the same directory
 import { useRouter } from 'next/navigation';
 import { checkToken } from '@/utils/auth';
-import { jwtDecode } from 'jwt-decode'; // Import jwt-decode library
+import { jwtDecode } from 'jwt-decode'; // Corrected import for jwt-decode library
 
 export default function subLayout({ children }) {
   const router = useRouter();
+  const logo = "/CuetLogo.png"; // Update with the correct file path and extension
 
-  // Define the validateToken function outside of useEffect to make it accessible in JSX
   const validateToken = async () => {
     const isValid = await checkToken(router);
     if (!isValid) {
@@ -19,34 +20,42 @@ export default function subLayout({ children }) {
 
     const token = localStorage.getItem("token");
 
-    // Decode the token using jwt-decode
     if (token) {
       try {
         const decodedData = jwtDecode(token);
         console.log("Admin : ", decodedData.admin);
 
-        if(decodedData.admin === "Member Only"){
-          router.push("/user")
+        if (decodedData.admin === "Member Only") {
+          router.push("/user");
+        } else if (decodedData.admin !== "Admin") {
+          router.push("/moderator");
         }
-        else if(decodedData.admin !== "Admin"){
-          router.push("/moderator")
-        }
-        
-      } 
-      catch (error) {
+      } catch (error) {
         console.error("Error decoding token:", error);
       }
     }
   };
 
-  // Run the token validation check when the component mounts
   useEffect(() => {
     validateToken();
   }, [router]);
 
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    router.push("/login")
+  }
+
   return (
     <div className="sub-layout">
-      <h1 className="admin-title">Admin Dashboard</h1>
+      <header className="admin-header">
+        <Image src={logo} alt="CUET Logo" width={100} height={100} className='logo' />
+        <h1 className="admin-heading">
+          Welcome to CUET All Club Management - Admin Panel
+        </h1>
+        <button className="log-out-button" onClick={handleLogout}>
+          Log Out
+        </button>
+      </header>
       <nav className="admin-nav">
         <Link href="/admin" className="admin-link" onClick={validateToken}>
           Home
@@ -64,9 +73,7 @@ export default function subLayout({ children }) {
           Approval
         </Link>
       </nav>
-      <main className="admin-content">
-        {children}
-      </main>
+      <main className="admin-content">{children}</main>
     </div>
   );
 }

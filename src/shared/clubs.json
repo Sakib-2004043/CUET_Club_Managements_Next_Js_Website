@@ -1,30 +1,168 @@
 {
   "clubs": [
-    "Central Students' Union",
     "Computer Club",
     "Debating Society",
-    "Green for Peace",
     "CUET Career Club",
     "Joyoddhoney",
     "CUETJA",
     "ASRRO",
-    "CUET Photographic Society",
     "ACI-CUET Chapter",
-    "Robo Mechatronics Association (RMA)",
-    "Society of Petroleum Engineers (SPE)"
+    "Robo Mechatronics Association (RMA)"
   ],
+  "photos": {
+    "Computer Club": "ComputerClub.png",
+    "Debating Society": "CuetDS.jpg",
+    "CUET Career Club": "CareerClub.jpg",
+    "Joyoddhoney": "Joyoddhoney.png",
+    "CUETJA": "CuetJA.png",
+    "ASRRO": "Asrro.jpg",
+    "ACI-CUET Chapter": "ACI_Cuet.png",
+    "Robo Mechatronics Association (RMA)": "RMA.jpg"
+  },
   "clubInfo": {
-    "Central Students' Union": "The primary student representative body at CUET, tasked with organizing events, addressing student concerns, and fostering a vibrant campus life. They play a crucial role in mediating between students and the administration.",
-    "Computer Club": "A hub for coding enthusiasts, developers, and tech-savvy students. The club organizes programming contests, hackathons, and workshops on cutting-edge technologies like AI, ML, and Blockchain.",
-    "Debating Society": "Encourages critical thinking and eloquence by hosting debates, public speaking competitions, and Model United Nations (MUN) conferences. A perfect platform for those passionate about expressing their views.",
-    "Green for Peace": "An environmental advocacy group dedicated to promoting sustainability and awareness. Activities include tree plantation drives, recycling programs, and awareness campaigns about climate change.",
-    "CUET Career Club": "Focuses on bridging the gap between academics and the professional world. They organize career counseling sessions, mock interviews, resume-building workshops, and alumni networking events.",
-    "Joyoddhoney": "A cultural club celebrating art, music, and literature. It organizes events like cultural evenings, poetry recitations, and exhibitions to showcase student talent in the arts.",
-    "CUETJA": "The CUET Journalistic Association, which provides a platform for aspiring journalists and writers. Activities include publishing newsletters, covering campus events, and offering journalism workshops.",
-    "ASRRO": "Astronomy and Space Research and Robotics Organization, dedicated to space exploration and robotics. Members participate in stargazing events, build robots, and work on space-related projects.",
-    "CUET Photographic Society": "A creative outlet for photography enthusiasts. The club hosts photo walks, exhibitions, and workshops to help members improve their skills and showcase their work.",
-    "ACI-CUET Chapter": "The official student chapter of the American Concrete Institute, focusing on advancements in civil engineering. Members participate in technical seminars, competitions, and research projects.",
-    "Robo Mechatronics Association (RMA)": "A club dedicated to the advancement of robotics, automation, and mechatronics. Activities include building robots, participating in competitions, and exploring emerging technologies.",
-    "Society of Petroleum Engineers (SPE)": "A global organization with a student chapter at CUET, aimed at petroleum engineering students. They host lectures, workshops, and networking events with industry professionals."
+    "Computer Club": {
+      "description": "A hub for coding enthusiasts, developers, and tech-savvy students. The club organizes programming contests, hackathons, and workshops on cutting-edge technologies like AI, ML, and Blockchain.",
+      "achievements": [
+        "Won 1st place in the National Hackathon 2024.",
+        "Built an open-source library used by over 1,000 developers worldwide.",
+        "Organized the largest inter-university coding competition in the region."
+      ],
+      "events": [
+        "Annual CUET Hackathon",
+        "TechTalk Series on Artificial Intelligence",
+        "Blockchain Workshop for Beginners"
+      ],
+      "outcomes": [
+        "Increased student participation in global coding challenges.",
+        "Published research papers on AI and distributed systems.",
+        "Enhanced collaborative development skills among members."
+      ]
+    },
+    "Debating Society": {
+      "description": "Encourages critical thinking and eloquence by hosting debates, public speaking competitions, and Model United Nations (MUN) conferences. A perfect platform for those passionate about expressing their views.",
+      "achievements": [
+        "Won Best Delegation at CUET MUN 2023.",
+        "Produced 3 national-level debating champions.",
+        "Hosted the largest debate competition in South-East Bangladesh."
+      ],
+      "events": [
+        "CUET Debate Championship",
+        "Model United Nations (MUN)",
+        "Public Speaking Bootcamp"
+      ],
+      "outcomes": [
+        "Improved public speaking and argumentation skills.",
+        "Increased student engagement in social and political discussions.",
+        "Developed confidence and leadership abilities among members."
+      ]
+    },
+    "CUET Career Club": {
+      "description": "Focuses on bridging the gap between academics and the professional world. They organize career counseling sessions, mock interviews, resume-building workshops, and alumni networking events.",
+      "achievements": [
+        "Facilitated internships for 200+ students in top companies.",
+        "Created a repository of 1,000+ resumes for job placement.",
+        "Organized a National Career Fair with 50+ participating companies."
+      ],
+      "events": [
+        "CUET Career Fair",
+        "Resume Building Workshop",
+        "Mock Interview Marathon"
+      ],
+      "outcomes": [
+        "Increased job placement rate for CUET graduates.",
+        "Improved student readiness for professional challenges.",
+        "Established strong alumni-student connections."
+      ]
+    },
+    "Joyoddhoney": {
+      "description": "A cultural club celebrating art, music, and literature. It organizes events like cultural evenings, poetry recitations, and exhibitions to showcase student talent in the arts.",
+      "achievements": [
+        "Performed at the National Cultural Fest 2023.",
+        "Published an anthology of poetry and short stories.",
+        "Organized an art exhibition attended by 1,000+ visitors."
+      ],
+      "events": [
+        "CUET Cultural Evening",
+        "Poetry Recitation Contest",
+        "Art & Photography Exhibition"
+      ],
+      "outcomes": [
+        "Enhanced cultural awareness among students.",
+        "Provided a platform for showcasing artistic talent.",
+        "Increased collaboration between creative communities."
+      ]
+    },
+    "CUETJA": {
+      "description": "The CUET Journalistic Association, which provides a platform for aspiring journalists and writers. Activities include publishing newsletters, covering campus events, and offering journalism workshops.",
+      "achievements": [
+        "Published 50+ editions of the CUET Times newsletter.",
+        "Received a National Student Journalism Award in 2024.",
+        "Covered all major CUET events with in-depth reporting."
+      ],
+      "events": [
+        "Journalism Workshop",
+        "Newsletter Publication Series",
+        "Photography & Reporting Competition"
+      ],
+      "outcomes": [
+        "Improved journalistic and storytelling skills.",
+        "Encouraged critical analysis of campus events.",
+        "Built a strong network of student journalists."
+      ]
+    },
+    "ASRRO": {
+      "description": "Astronomy and Space Research and Robotics Organization, dedicated to space exploration and robotics. Members participate in stargazing events, build robots, and work on space-related projects.",
+      "achievements": [
+        "Built a functional Mars Rover model for a national competition.",
+        "Participated in NASA’s Space Apps Challenge.",
+        "Discovered a new asteroid during a stargazing event."
+      ],
+      "events": [
+        "Stargazing Nights",
+        "NASA Space Apps Challenge",
+        "Robotics Workshop Series"
+      ],
+      "outcomes": [
+        "Enhanced understanding of space and robotics technologies.",
+        "Encouraged participation in global astronomy projects.",
+        "Fostered innovation in robotic design."
+      ]
+    },
+    "ACI-CUET Chapter": {
+      "description": "The official student chapter of the American Concrete Institute, focusing on advancements in civil engineering. Members participate in technical seminars, competitions, and research projects.",
+      "achievements": [
+        "Won 1st place in the National Concrete Design Challenge.",
+        "Published 5 research papers on sustainable concrete solutions.",
+        "Hosted the largest technical seminar on civil engineering advancements."
+      ],
+      "events": [
+        "Concrete Design Competition",
+        "Technical Seminar Series",
+        "Sustainable Construction Workshop"
+      ],
+      "outcomes": [
+        "Enhanced technical knowledge in civil engineering.",
+        "Increased awareness of sustainable construction practices.",
+        "Provided networking opportunities with industry professionals."
+      ]
+    },
+    "Robo Mechatronics Association (RMA)": {
+      "description": "A club dedicated to the advancement of robotics, automation, and mechatronics. Activities include building robots, participating in competitions, and exploring emerging technologies.",
+      "achievements": [
+        "Won Best Innovation Award at RoboFest 2024.",
+        "Developed an autonomous delivery robot prototype.",
+        "Organized the largest robotics competition in CUET."
+      ],
+      "events": [
+        "RoboFest",
+        "Automation Workshop Series",
+        "Robotics Competition"
+      ],
+      "outcomes": [
+        "Improved hands-on skills in robotics and automation.",
+        "Encouraged innovation in robotic technology.",
+        "Built a community of robotics enthusiasts."
+      ]
+    }
   }
 }
