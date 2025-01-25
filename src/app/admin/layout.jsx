@@ -1,5 +1,5 @@
 "use client";
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image'; // Import Image component
 import './layout.css'; // Assuming this CSS file exists in the same directory
@@ -7,9 +7,12 @@ import { useRouter } from 'next/navigation';
 import { checkToken } from '@/utils/auth';
 import { jwtDecode } from 'jwt-decode'; // Corrected import for jwt-decode library
 
-export default function subLayout({ children }) {
+export default function SubLayout({ children }) {
   const router = useRouter();
   const logo = "/CuetLogo.png"; // Update with the correct file path and extension
+
+  // State for notifications
+  const [notifications, setNotifications] = useState(0);
 
   const validateToken = async () => {
     const isValid = await checkToken(router);
@@ -45,17 +48,37 @@ export default function subLayout({ children }) {
     router.push("/login")
   }
 
+  // Dummy notification count for now, you can integrate with your notification logic
+  const toggleNotifications = () => setNotifications(notifications === 0 ? 5 : 0); // For demo purposes
+
   return (
     <div className="sub-layout">
       <header className="admin-header">
-        <Image src={logo} alt="CUET Logo" width={100} height={100} className='logo' />
+        <Image 
+          src="/CuetLogo.png" 
+          alt="CUET Logo" 
+          width={60} 
+          height={60} 
+          style={{ height: "auto", width: "auto" }} 
+          className="logo" 
+        />
         <h1 className="admin-heading">
           Welcome to CUET All Club Management - Admin Panel
         </h1>
+        <div className="notification-container">
+          <div className="notification-bell-container" onClick={toggleNotifications}>
+            <i className={`fas fa-bell ${notifications > 0 ? "active" : ""}`}></i>
+            {notifications > 0 && (
+              <span className="notification-dot">{notifications}</span>
+            )}
+          </div>
+          <span className='notification' onClick={toggleNotifications}>Notification</span>
+        </div>
         <button className="log-out-button" onClick={handleLogout}>
           Log Out
         </button>
       </header>
+
       <nav className="admin-nav">
         <Link href="/admin" className="admin-link" onClick={validateToken}>
           Home
@@ -73,7 +96,10 @@ export default function subLayout({ children }) {
           Approval
         </Link>
       </nav>
-      <main className="admin-content">{children}</main>
+
+      <main className="admin-content">
+        {children}
+      </main>
     </div>
   );
 }

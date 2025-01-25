@@ -1,26 +1,124 @@
-.admin-interface {
+
+/* Container for the entire page */
+.admin-home-landing {
+  max-width: 1200px;
+  margin: 20px auto;
   padding: 20px;
-  font-family: Arial, sans-serif;
-  text-align: center;
-  min-height: 100vh;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.admin-chart-container {
-  width: 70%;
-  margin: 0 auto;
+/* Header */
+.admin-home-header {
+  text-align: center;
+  background-color: #a5d6a7; /* Light green background */
   padding: 20px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
 }
 
-.admin-title {
-  font-size: 2.5rem;
-  color: #333;
-  margin-bottom: 20px;
+.admin-home-description {
+  font-size: 1.2rem;
+  color: #1b5e20;
+  line-height: 1.6;
 }
 
-.admin-subtitle {
+/* Statistics Section */
+.admin-statistics {
+  margin: 30px 0;
+  background-color: #c8e6c9; /* Softer green */
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.statistics-title {
   font-size: 1.8rem;
-  color: #555;
-  margin-bottom: 20px;
+  color: #388e3c; /* Dark green text */
+  margin-bottom: 10px;
+}
+
+.statistics-summary {
+  font-size: 1.2rem;
+  color: #388e3c;
+}
+
+/* Chart Section */
+.admin-chart {
+  background-color: #e8f5e9; /* Very light green */
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.chart-title {
+  font-size: 1.6rem;
+  color: #2e7d32; /* Deep green */
+  margin-bottom: 15px;
+}
+
+.loading-message {
+  font-size: 1rem;
+  color: #388e3c;
+  font-style: italic;
+}
+
+/* Footer */
+.admin-home-footer {
+  text-align: center;
+  padding: 15px;
+  background-color: #a5d6a7;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.footer-message {
+  font-size: 1.2rem;
+  color: #1b5e20;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .admin-home-landing {
+    padding: 15px;
+  }
+
+  .admin-home-description,
+  .statistics-summary,
+  .footer-message {
+    font-size: 1rem;
+  }
+
+  .statistics-title {
+    font-size: 1.4rem;
+  }
+
+  .chart-title {
+    font-size: 1.4rem;
+  }
+
+  .loading-message {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-home-description {
+    font-size: 0.9rem;
+  }
+
+  .statistics-summary {
+    font-size: 0.9rem;
+  }
+
+  .footer-message {
+    font-size: 1rem;
+  }
+
+  .chart-title {
+    font-size: 1.2rem;
+  }
+
+  .loading-message {
+    font-size: 1rem;
+  }
 }
