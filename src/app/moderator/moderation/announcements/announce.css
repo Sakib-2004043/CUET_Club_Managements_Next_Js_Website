@@ -1,160 +1,155 @@
-/* General Container */
-.admin-container {
-  padding: 30px;
-  font-family: 'Arial', sans-serif;
-  background-color: #f5f7fa;
-  min-height: 100vh;
+/* General Container Styling */
+.moderation-container {
+  padding: 20px;
+  background-color: #f0f7ff;  /* Light Blue Background */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Section Title */
-.admin-section-title {
-  font-size: 28px;
-  font-weight: bold;
-  color: #333;
+.moderation-section {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.moderation-section-title {
+  font-size: 26px;
+  font-weight: 600;
+  color: #1a3a5f;  /* Dark Blue Text */
   margin-bottom: 20px;
   text-align: center;
 }
 
-/* Announcement Form */
-.admin-announcement-form {
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin-bottom: 30px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+/* Announcements Form */
+.moderation-announcement-form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
 }
 
-.admin-announcement-textarea {
-  width: 100%;
+.moderation-announcement-textarea {
+  width: 96%;
   height: 120px;
   padding: 12px;
-  font-size: 16px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
   margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #a1c2e8;  /* Light Blue Border */
+  font-size: 16px;
+  color: #1a3a5f;
   resize: none;
   transition: border-color 0.3s ease;
 }
 
-.admin-announcement-textarea:focus {
-  border-color: #ff5c8e;
+.moderation-announcement-textarea:focus {
+  border-color: #63a4f7;  /* Light Blue Focus */
   outline: none;
 }
 
-/* Button Styling */
-.admin-button {
-  background-color: #ff5c8e;
-  color: #fff;
+.moderation-button {
+  padding: 12px 20px;
   font-size: 16px;
-  padding: 12px 24px;
   border: none;
-  border-radius: 8px;
+  border-radius: 5px;
   cursor: pointer;
-  width: 100%;
-  transition: background-color 0.3s ease;
-}
-
-.admin-button:hover {
-  background-color: #ff2e5b;
+  font-weight: 600;
+  transition: all 0.3s ease;
 }
 
 .announcement-button {
-  font-weight: bold;
+  background-color: #63a4f7;  /* Light Blue */
+  color: white;
 }
 
-/* Announcement Table Container */
-.announcement-table-container {
-  margin-top: 40px;
-  max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.announcement-button:hover {
+  background-color: #5e94e0;  /* Darker Blue on Hover */
 }
 
-.announcement-table-title {
-  font-size: 24px;
-  color: #333;
-  text-align: center;
-  margin-bottom: 20px;
+.announcement-button:focus {
+  outline: none;
 }
 
 /* Table Styling */
-.announcement-table {
+.moderation-announcement-table-container {
+  margin-top: 40px;
+}
+
+.moderation-announcement-table-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #1a3a5f;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.moderation-announcement-table {
+  cursor: pointer;
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
-}
-
-.announcement-table th,
-.announcement-table td {
-  padding: 15px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-  font-size: 16px;
-  color: #444;
-}
-
-.announcement-table th {
-  background-color: #f8f9fa;
-  font-weight: bold;
-  color: #333;
-}
-
-.announcement-table-row:hover {
-  background-color: #f9f9f9;
-}
-
-.announcement-table-cell {
-  padding: 12px;
-  color: #555;
-  font-size: 14px;
-}
-
-.announcement-table-cell.date {
-  color: #888;
-  font-size: 13px;
-  text-align: center;
-}
-
-.announcement-table-cell.message {
-  max-width: 600px;
-  white-space: nowrap;
+  background-color: #f8faff;  /* Very Light Blue */
+  border-radius: 8px;
   overflow: hidden;
-  text-overflow: ellipsis;
 }
 
-.announcement-table-cell[colspan="2"] {
+.moderation-announcement-table th,
+.moderation-announcement-table td {
+  padding: 14px 20px;
+  text-align: left;
+  font-size: 18px;
+  font-weight: 600;  /* Bolder Text */
+  color: #1a3a5f;
+}
+
+.moderation-announcement-table th {
+  background-color: #63a4f7;  /* Light Blue Header */
+  color: white;
+}
+
+.moderation-announcement-table-row {
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.moderation-announcement-table-row:hover {
+  background-color: #e1f0ff;  /* Hover Effect Light Blue */
+  transform: translateY(-3px);  /* Slight Row Lift Effect */
+}
+
+.moderation-announcement-table-cell {
+  font-size: 16px;
+}
+
+.moderation-announcement-table-header {
   text-align: center;
-  font-style: italic;
-  color: #888;
 }
 
-/* Mobile Responsiveness */
-@media screen and (max-width: 768px) {
-  .admin-container {
+.moderation-announcement-table-cell[colspan="3"] {
+  text-align: center;
+  color: #888888;
+  font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .moderation-container {
     padding: 15px;
   }
 
-  .admin-announcement-form {
-    padding: 15px;
+  .moderation-section {
+    padding: 20px;
   }
 
-  .announcement-table-container {
-    padding: 15px;
+  .moderation-announcement-textarea {
+    height: 100px;
   }
 
-  .announcement-table {
+  .moderation-announcement-table {
     font-size: 14px;
   }
 
-  .announcement-table th,
-  .announcement-table td {
-    padding: 10px;
+  .announcement-button {
+    padding: 10px 18px;
   }
 }

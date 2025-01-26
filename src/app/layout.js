@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
               <Link href="/privacy" className="footer-link">Privacy Policy</Link>
             </div>
           </div>
-          <div className="container">
+          <div className="footer-container">
             <p>&copy; 2024 CUET Club Management System</p>
             <p>Chittagong University of Engineering & Technology</p>
           </div>

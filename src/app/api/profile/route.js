@@ -9,6 +9,10 @@ export async function POST(req) {
 
     // Parse the incoming request body
     const { studentId } = await req.json();
+    if(!studentId){
+      return NextResponse.json("Student Id Not Found")
+    }
+    console.log("StdID : ",studentId)
 
     // Check if studentId is provided
     if (!studentId) {

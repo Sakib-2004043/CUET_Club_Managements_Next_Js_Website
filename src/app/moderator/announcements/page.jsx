@@ -2,32 +2,28 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import "./announce.css";
 import { tokenDecoder } from "@/utils/decode";
 
-const Announcements = () => {
-  const [announcement, setAnnouncement] = useState("");
-  const [announcements, setAnnouncements] = useState([]); 
-  const [render, setRender] = useState(true)
-  const router = useRouter(); // Next.js router for navigation
+import "./announce.css"
 
-  
+const Announcements = () => {
+  const [announcements, setAnnouncements] = useState([]);
+  const router = useRouter(); // Next.js router for navigation
+  const [render, setRender] = useState(true);
 
   // Fetch all announcements when the component mounts
   useEffect(() => {
     const fetchAnnouncements = async () => {
-      
       try {
         const tokenData = await tokenDecoder(router);
 
-    
         const response = await fetch("/api/announcement", {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({ studentId: tokenData.studentId }),
-      });
+        });
         if (response.ok) {
           const data = await response.json();
           setAnnouncements(data.data); // Set the fetched announcements
@@ -44,43 +40,49 @@ const Announcements = () => {
   }, [render]);
 
   return (
-    <div className="admin-container">
-      {/* Announcements Section */}
-      <div className="admin-section">
+    <div className="mod-annc-container">
+      {/* Page Header */}
+      <header className="mod-annc-header">
+        <h1 className="mod-annc-title">Announcements</h1>
+        <p className="mod-annc-subtitle">
+          Stay informed with the latest updates and announcements.
+        </p>
+      </header>
 
-        {/* Displaying Announcements in Table */}
-        <div className="announcement-table-container">
-          <h3 className="announcement-table-title">All Announcements</h3>
-          <table className="announcement-table">
+      {/* Announcements Table */}
+      <main className="mod-annc-section">
+        <section className="mod-annc-table-container">
+          <h2 className="mod-annc-table-title">Recent Announcements</h2>
+          <table className="mod-annc-table">
             <thead>
               <tr>
-                <th>Poster</th>
-                <th className="announcement-table-header">Date</th>
-                <th className="announcement-table-header">Announcements</th>
+                <th className="mod-annc-table-header">Posted By</th>
+                <th className="mod-annc-table-header">Date</th>
+                <th className="mod-annc-table-header">Details</th>
               </tr>
             </thead>
             <tbody>
               {announcements.length > 0 ? (
                 announcements.map((announcement, index) => (
-                  <tr key={index} className="announcement-table-row">
-                    <td className="announcement-table-cell">{announcement.admin}</td>
-                    <td className="announcement-table-cell">
-                      {new Date(announcement.createdAt).toLocaleString()} {/* Format date */}
+                  <tr key={index} className="mod-annc-table-row">
+                    <td className="mod-annc-table-cell">{announcement.admin}</td>
+                    <td className="mod-annc-table-cell">
+                      {new Date(announcement.createdAt).toLocaleString()}
                     </td>
-                    <td className="announcement-table-cell">{announcement.message}</td>
+                    <td className="mod-annc-table-cell">{announcement.message}</td>
                   </tr>
                 ))
               ) : (
                 <tr>
-                  <td colSpan="3" className="announcement-table-cell">
-                    No announcements to display.
+                  <td colSpan="3" className="mod-annc-table-cell">
+                    No announcements available at the moment.
                   </td>
                 </tr>
               )}
             </tbody>
           </table>
-        </div>
-      </div>
+        </section>
+      </main>
     </div>
   );
 };

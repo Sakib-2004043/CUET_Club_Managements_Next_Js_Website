@@ -21,12 +21,11 @@ const Profile = () => {
   useEffect(() => {
     const fetchUserData = async () => {
 
-      if (typeof window !== "undefined") {
-        const data = JSON.parse(localStorage.getItem("STDID"));
-        if (data) {
-          setStudentId(data.studentId);
-          setAdmin(data.admin);
-        }
+      const data = await JSON.parse(localStorage.getItem("STDID"));
+      console.log("STDID : ",data.studentId)
+      if (data) {
+        setStudentId(data.studentId);
+        setAdmin(data.admin);
       }
 
       try {
@@ -36,7 +35,7 @@ const Profile = () => {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ studentId }),
+          body: JSON.stringify( {studentId : studentId} ),
         });
 
         if (response.ok) {
@@ -107,70 +106,65 @@ const Profile = () => {
 
   }
 
-  if (loading) return <div className="loading-spinner">Loading...</div>;
+  if (loading) return <div className="mod-prof-loading-spinner">Loading...</div>;
 
-  if (!user) return <div className="error-message">User not found</div>;
+  if (!user) return <div className="mod-prof-error-message">User not found</div>;
 
   return (
-    <div className="profile-page">
-      <h1 className="profile-heading">User Profile</h1>
-      <div className="profile-card">
-        <div className="profile-image-container">
+    <div className="mod-prof-profile-page">
+      
+      <div className="mod-prof-profile-card">
+        <h1 className="mod-prof-profile-heading">User Profile</h1>
+        <div className="mod-prof-profile-image-container">
           {profileImage ? (
-            <div className="profile-image">
-              <img src={profileImage} alt="Profile" className="profile-img" />
+            <div className="mod-prof-profile-image">
+              <img src={profileImage} alt="Profile" className="mod-prof-profile-img" />
             </div>
           ) : (
-            <p className="no-image-message">No profile image available</p>
+            <p className="mod-prof-no-image-message">No profile image available</p>
           )}
         </div>
-        <button 
-          className="make-moderator-button"
-          onClick={_ => setShowModeration(true)}
-        >
-            Update Moderator Status
-        </button>
-        <div className="profile-info">
-          <p className="profile-info-item"><strong>Name:</strong> {user.name}</p>
-          <p className="profile-info-item"><strong>Student ID:</strong> {user.studentId}</p>
-          <p className="profile-info-item"><strong>Email:</strong> {user.email}</p>
-          <p className="profile-info-item"><strong>Department:</strong> {user.department}</p>
-          <p className="profile-info-item"><strong>Mobile:</strong> {user.mobile}</p>
-          <p className="profile-info-item"><strong>Batch:</strong> {user.batch}</p>
-          <p className="profile-info-item"><strong>Hall:</strong> {user.hall}</p>
-          <p className="profile-info-item"><strong>Clubs Moderator:</strong> {user.admin}</p>
-          <p className="profile-info-item"><strong>Clubs Member:</strong> {user.clubsMember}</p>
+        
+        <div className="mod-prof-profile-info">
+          <p className="mod-prof-profile-info-item"><strong>Name:</strong> {user.name}</p>
+          <p className="mod-prof-profile-info-item"><strong>Student ID:</strong> {user.studentId}</p>
+          <p className="mod-prof-profile-info-item"><strong>Email:</strong> {user.email}</p>
+          <p className="mod-prof-profile-info-item"><strong>Department:</strong> {user.department}</p>
+          <p className="mod-prof-profile-info-item"><strong>Mobile:</strong> {user.mobile}</p>
+          <p className="mod-prof-profile-info-item"><strong>Batch:</strong> {user.batch}</p>
+          <p className="mod-prof-profile-info-item"><strong>Hall:</strong> {user.hall}</p>
+          <p className="mod-prof-profile-info-item"><strong>Clubs Moderator:</strong> {user.admin}</p>
         </div>
       </div>
 
       {/* Displaying the membership status */}
-      <div className="membership-status-container">
-        <h2 className="membership-status-heading">Membership Request</h2>
+      <div className="mod-prof-membership-status-container">
+        <h2 className="mod-prof-membership-status-heading">Membership Request</h2>
         {membershipStatus.length > 0 ? (
-          <table className="membership-table">
+          <table className="mod-prof-membership-table">
             <thead>
               <tr>
-                <th className="table-header">Club</th>
-                <th className="table-header">Status</th>
-                <th className="table-header">Actions</th> 
+                <th className="mod-prof-table-header">Club</th>
+                <th className="mod-prof-table-header">Status</th>
+                <th className="mod-prof-table-header">Actions</th> 
               </tr>
             </thead>
             <tbody>
               {membershipStatus.map((request, index) => (
-                <tr key={index} className="membership-table-row">
-                  <td className="table-cell">{request.requestedClub}</td>
-                  <td className="table-cell status-cell">{request.approval === "Not Requested"?"Left Club":request.approval}</td>
-                  <td className="table-cell action-cell">
+                <tr key={index} className="mod-prof-membership-table-row">
+                  <td className="mod-prof-table-cell">{request.requestedClub}</td>
+                  <td className="mod-prof-table-cell mod-prof-status-cell">{request.approval === "Not Requested"?"Left Club":request.approval}</td>
+                  <td className="mod-prof-table-cell mod-prof-action-cell">
                     {request.approval === "Pending" && (
                       <>
                         <button
-                          className="accept-button"
+                          className="mod-prof-accept-button"
                           onClick={() => handleAction(request.requestedClub, "Accepted")}
                         >
                           Accept
                         </button>
                         <button
-                          className="reject-button"
+                          className="mod-prof-reject-button"
                           onClick={() => handleAction(request.requestedClub, "Rejected")}
                         >
                           Reject
@@ -179,7 +173,7 @@ const Profile = () => {
                     )}
                     {request.approval === "Accepted" && (
                       <button
-                        className="remove-button"
+                        className="mod-prof-remove-button"
                         onClick={() => handleAction(request.requestedClub, "Removed")}
                       >
                         Remove from Club
@@ -187,7 +181,7 @@ const Profile = () => {
                     )}
                     {request.approval === "Rejected" && (
                       <button
-                        className="allow-button"
+                        className="mod-prof-allow-button"
                         onClick={() => handleAction(request.requestedClub, "Accepted")}
                       >
                         Allow to Join
@@ -195,7 +189,7 @@ const Profile = () => {
                     )}
                     {request.approval === "Removed" && (
                       <button
-                        className="cancel-button"
+                        className="mod-prof-cancel-button"
                         onClick={() => handleAction(request.requestedClub, "Accepted")}
                       >
                         Cancel Removal
@@ -208,7 +202,7 @@ const Profile = () => {
 
           </table>
         ) : (
-          <p className="no-requests-message">No membership requests found.</p>
+          <p className="mod-prof-no-requests-message">No membership requests found.</p>
         )}
       </div>
 

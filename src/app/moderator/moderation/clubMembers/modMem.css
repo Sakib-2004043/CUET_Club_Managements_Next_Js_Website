@@ -1,116 +1,85 @@
-/* info.css */
-
-/* Container for the admin interface */
-.admin-container {
-  padding: 20px;
+/* General container styling */
+.moderation-container {
   font-family: Arial, sans-serif;
-  background-color: #f9fafb; /* Very light gray background */
-}
-
-/* Section container */
-.admin-section {
-  margin-bottom: 30px;
-  background: #ffffff; /* White background */
-  border: 1px solid #e0e0e0; /* Light border */
-  border-radius: 12px; /* Rounded corners */
   padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  background-color: #f9f9f9;
+  color: #333;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Search input */
-.admin-search-input {
+/* Search input styling */
+.moderation-search-input {
   width: 100%;
-  padding: 12px;
-  font-size: 1rem;
+  padding: 10px;
   margin-bottom: 20px;
-  border: 1px solid #d1d5db; /* Neutral gray border */
-  border-radius: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  font-weight: bolder;
+}
+
+.moderation-search-input:focus {
+  border-color: #0077ff;
   outline: none;
-  box-sizing: border-box;
-  background-color: #f3f4f6; /* Light gray background for input */
-  transition: border-color 0.2s ease-in-out;
+  box-shadow: 0 0 5px rgba(0, 119, 255, 0.5);
 }
 
-.admin-search-input:focus {
-  border-color: #4f46e5; /* Soft blue focus border */
-  background-color: #ffffff; /* White background on focus */
-}
-
-/* Title for each section */
-.admin-section-title {
-  font-size: 1.8rem;
+/* Section title styling */
+.moderation-section-title {
+  font-size: 24px;
   font-weight: bold;
   margin-bottom: 20px;
-  text-align: center;
-  color: #374151; /* Neutral dark gray text */
+  color: #0077ff;
 }
 
-/* Table container */
-.admin-table {
+/* Table styling */
+.moderation-table {
   width: 100%;
+  font-weight: bolder;
   border-collapse: collapse;
-  border-radius: 12px;
-  overflow: hidden; /* Rounded corners on the table */
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  background-color: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Table header cells */
-.admin-table-header {
-  background-color: #4f46e5; /* Soft blue background */
-  color: #ffffff; /* White text */
-  padding: 14px;
+.moderation-table-header {
+  background-color: #0077ff;
+  color: #ffffff;
   text-align: left;
-  font-weight: bold;
-  font-size: 1.1rem;
-  border: 1px solid #4f46e5; /* Matching border */
+  padding: 12px;
 }
 
-/* Table rows with alternating colors */
-.admin-table-row:nth-child(even) {
-  background-color: #f3f4f6; /* Light gray for alternating rows */
+.moderation-table-row {
+  transition: background-color 0.3s ease;
 }
 
-.admin-table-row:nth-child(odd) {
-  background-color: #ffffff; /* White for alternating rows */
+.moderation-table-row:hover {
+  background-color: #e0f7ff;
 }
 
-/* Hover effect on table rows */
-.admin-table-row:hover {
-  background-color: #e5e7eb; 
-  cursor: pointer;
+.moderation-table-data {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  vertical-align: middle;
 }
 
-/* Table data cells */
-.admin-table-data {
-  padding: 14px;
-  text-align: left;
-  border-bottom: 1px solid #e5e7eb; /* Light bottom border */
-  font-size: 1rem;
-  color: #4b5563; /* Neutral dark text */
-}
-
-/* Profile image styling */
-.admin-profile-image {
+.moderation-table-data img {
   width: 50px;
   height: 50px;
-  border-radius: 50%; /* Circular image */
   object-fit: cover;
-  border: 2px solid #d1d5db; /* Light gray border */
-  background-color: #f9fafb; /* Fallback background in case of no image */
+  border-radius: 50%;
 }
 
-/* Placeholder text when no image is available */
 .no-image-text {
-  font-size: 0.9rem;
-  color: #9ca3af; /* Neutral light gray text */
-  text-align: center;
+  color: #aaa;
+  font-style: italic;
 }
 
-/* Highlighted text in search results */
+/* Highlight match styling */
 .highlight {
+  background-color: yellow;
   font-weight: bold;
-  background-color: #4b5563; /* Soft yellow highlight */
-  color: #fef3c7; /* Neutral dark text for readability */
-  padding: 2px 2px; /* Add slight padding for better visibility */
-  border-radius: 4px; /* Rounded corners for the highlight */
 }

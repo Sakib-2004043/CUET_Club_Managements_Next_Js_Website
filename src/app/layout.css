@@ -46,12 +46,12 @@ body{
 }
 
 /* Container Section */
-.container {
+.footer-container {
   text-align: center; /* Center-align text */
   font-size: 13px; /* Slightly smaller font for copyright text */
   color: #bbbbbb; /* Light gray for subtlety */
 }
 
-.container p {
+.footer-container p {
   margin: 5px 0; /* Space between paragraphs */
 }

@@ -1,160 +1,109 @@
-/* General Container */
-.admin-container {
-  padding: 30px;
+/* General Page Layout */
+.mod-annc-container {
   font-family: 'Arial', sans-serif;
-  background-color: #f5f7fa;
+  background: linear-gradient(160deg, #c0d6e0, #063b53);
   min-height: 100vh;
-}
-
-/* Section Title */
-.admin-section-title {
-  font-size: 28px;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-/* Announcement Form */
-.admin-announcement-form {
-  background-color: #ffffff;
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin-bottom: 30px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+  font-weight: bolder;
+  width: 50%;
+
 }
 
-.admin-announcement-textarea {
-  width: 100%;
-  height: 120px;
-  padding: 12px;
-  font-size: 16px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  margin-bottom: 15px;
-  resize: none;
-  transition: border-color 0.3s ease;
-}
-
-.admin-announcement-textarea:focus {
-  border-color: #ff5c8e;
-  outline: none;
-}
-
-/* Button Styling */
-.admin-button {
-  background-color: #ff5c8e;
-  color: #fff;
-  font-size: 16px;
-  padding: 12px 24px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  width: 100%;
-  transition: background-color 0.3s ease;
-}
-
-.admin-button:hover {
-  background-color: #ff2e5b;
-}
-
-.announcement-button {
-  font-weight: bold;
-}
-
-/* Announcement Table Container */
-.announcement-table-container {
-  margin-top: 40px;
-  max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.announcement-table-title {
-  font-size: 24px;
-  color: #333;
+/* Header Section */
+.mod-annc-header {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
-/* Table Styling */
-.announcement-table {
-  width: 100%;
-  border-collapse: collapse;
+.mod-annc-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #0277bd; /* Dark blue */
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.mod-annc-subtitle {
+  font-size: 1.2rem;
+  color: #0288d1; /* Lighter blue */
+  font-weight: bolder;
+
+}
+
+/* Announcements Table Section */
+.mod-annc-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.mod-annc-table-container {
   margin-top: 20px;
 }
 
-.announcement-table th,
-.announcement-table td {
-  padding: 15px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-  font-size: 16px;
-  color: #444;
-}
-
-.announcement-table th {
-  background-color: #f8f9fa;
-  font-weight: bold;
-  color: #333;
-}
-
-.announcement-table-row:hover {
-  background-color: #f9f9f9;
-}
-
-.announcement-table-cell {
-  padding: 12px;
-  color: #555;
-  font-size: 14px;
-}
-
-.announcement-table-cell.date {
-  color: #888;
-  font-size: 13px;
+.mod-annc-table-title {
+  font-size: 1.8rem;
+  color: #01579b; /* Deep blue */
   text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
 }
 
-.announcement-table-cell.message {
-  max-width: 600px;
-  white-space: nowrap;
+.mod-annc-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #f1f8e9;
+  border-radius: 8px;
   overflow: hidden;
-  text-overflow: ellipsis;
 }
 
-.announcement-table-cell[colspan="2"] {
+.mod-annc-table-header {
+  padding: 12px;
+  text-align: left;
+  background-color: #0288d1; /* Light blue */
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+.mod-annc-table-row {
+  transition: background-color 0.3s ease;
+}
+
+.mod-annc-table-cell {
+  padding: 12px;
+  text-align: left;
+  color: #333;
+  font-size: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Hover Effects */
+.mod-annc-table-row:hover {
+  background-color: #b3e5fc; /* Lighter blue */
+  cursor: pointer;
+}
+
+.mod-annc-table-cell {
+  color: #455a64; /* Darker text for readability */
+}
+
+.mod-annc-table-cell a {
+  color: #0288d1;
+  text-decoration: none;
+}
+
+.mod-annc-table-cell a:hover {
+  text-decoration: underline;
+}
+
+/* No data message styling */
+.mod-annc-table-cell[colspan="3"] {
   text-align: center;
   font-style: italic;
-  color: #888;
-}
-
-/* Mobile Responsiveness */
-@media screen and (max-width: 768px) {
-  .admin-container {
-    padding: 15px;
-  }
-
-  .admin-announcement-form {
-    padding: 15px;
-  }
-
-  .announcement-table-container {
-    padding: 15px;
-  }
-
-  .announcement-table {
-    font-size: 14px;
-  }
-
-  .announcement-table th,
-  .announcement-table td {
-    padding: 10px;
-  }
+  color: #0288d1;
 }

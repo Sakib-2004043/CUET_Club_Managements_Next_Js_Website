@@ -6,16 +6,19 @@ import { useRouter } from "next/navigation";
 import clubsData from "@/shared/clubs.json";
 
 import "./clubName.css";
+import {userNotification } from "@/utils/notification";
 
 const ClubPage = ({ params }) => {
   const router = useRouter();
-
-  // Unwrap the params
   const { clubName } = use(params);
-
   const decodedClubName = decodeURIComponent(clubName);
-  const clubInfo = clubsData.clubInfo;
-  const additionalInfo = clubInfo[decodedClubName] || "Information not available.";
+
+  const logo = "/clubLogo/"+clubsData.photos[decodedClubName];
+  const clubInfo = clubsData.clubInfo[decodedClubName];
+  const achievements = clubInfo.achievements || [];
+  const events = clubInfo.events || [];
+  const outcomes = clubInfo.outcomes || [];
+  const additionalInfo = clubInfo.description || "Information not available.";
 
   const [membershipStatus, setMembershipStatus] = useState("Request To Join");
 
@@ -23,7 +26,6 @@ const ClubPage = ({ params }) => {
     const checkMembershipStatus = async () => {
       try {
         const token = localStorage.getItem("token");
-
         if (!token) {
           setMembershipStatus("Request To Join");
           return;
@@ -32,38 +34,20 @@ const ClubPage = ({ params }) => {
         const tokenPayload = JSON.parse(atob(token.split(".")[1]));
         const studentId = tokenPayload.studentId;
 
-        // Fetch the current status from the API
         const response = await fetch(`/api/request`, {
           method: "PUT",
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify({
-            studentId: studentId,
-            clubName: decodedClubName,
-          }),
+          headers: { Authorization: `Bearer ${token}` },
+          body: JSON.stringify({ studentId, clubName: decodedClubName }),
         });
 
         const result = await response.json();
-
         if (response.ok) {
-          if (result.approval === "Pending") {
-            setMembershipStatus("Request Pending. Cancel");
-          } 
-          else if (result.approval === "Accepted") {
-            setMembershipStatus("Leave Club");
-          } 
-          else if (result.approval === "Not Requested") {
-            setMembershipStatus("Request To Join");
-          }
-          else if (result.approval === "Rejected") {
-            setMembershipStatus("Request Rejected");
-          } 
-          else if (result.approval === "Removed") {
-            setMembershipStatus("Removed From Club");
-          } 
-
-
+          setMembershipStatus(result.approval === "Pending" ? "Request Pending. Cancel" : 
+                              result.approval === "Accepted" ? "Leave Club" : 
+                              result.approval === "Not Requested" ? "Request To Join" : 
+                              result.approval === "Rejected" ? "Request Rejected" : 
+                              result.approval === "Removed" ? "Removed From Club" : 
+                              "Request To Join");
         }
       } catch (error) {
         console.error("Error checking membership status:", error);
@@ -71,13 +55,11 @@ const ClubPage = ({ params }) => {
     };
 
     checkMembershipStatus();
-  }, [decodedClubName, membershipStatus]);
+  }, [decodedClubName]);
 
   const handleRequest = async () => {
-    
     try {
       const token = localStorage.getItem("token");
-
       if (!token) {
         alert("You need to log in first!");
         router.push("/login");
@@ -89,90 +71,93 @@ const ClubPage = ({ params }) => {
 
       const response = await fetch("/api/request", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({
-          studentId,
-          clubName: decodedClubName,
-          status: membershipStatus,
-        }),
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+        body: JSON.stringify({ studentId, clubName: decodedClubName, status: membershipStatus }),
       });
 
       const result = await response.json();
-
-      console.log(result);
-
       setMembershipStatus(result.msg);
+
+      if (membershipStatus === "Request To Join") {
+        userNotification(decodedClubName, 1)
+      }
+      if (membershipStatus === "Request Pending. Cancel") {
+        userNotification(decodedClubName, -1)
+      }
     } catch (error) {
       console.error("Error during request submission:", error);
       alert("An error occurred. Please try again later.");
     }
   };
 
-  // Add confirmation dialog before handling request
   const confirmAndHandleRequest = () => {
-    let confirmationMessage = "";
-    if (membershipStatus === "Request To Join") {
-      confirmationMessage = "Are you sure you want to request to join this club?";
-    } 
-    else if (membershipStatus === "Request Pending. Cancel") {
-      confirmationMessage = "Are you sure you want to cancel your pending request?";
-    } 
-    else if (membershipStatus === "Leave Club") {
-      confirmationMessage = "Are you sure you want to leave this club?";
-    }
-    else if (membershipStatus === "Request Rejected") {
-      alert("Your Request Rejected. Contact Admin or Moderator")
-      return
-    }
-    else if (membershipStatus === "Removed From Club") {
-      alert("You are removed. Contact Admin or Moderator")
-      return
-    }
-    
+    const messages = {
+      "Request To Join": "Are you sure you want to request to join this club?",
+      "Request Pending. Cancel": "Are you sure you want to cancel your pending request?",
+      "Leave Club": "Are you sure you want to leave this club?",
+    };
 
-    const confirmed = window.confirm(confirmationMessage);
-    if (confirmed) {
-      handleRequest();
+    const message = messages[membershipStatus];
+    if (!message) {
+      alert(membershipStatus.includes("Rejected") || membershipStatus.includes("Removed")
+        ? "Contact Admin or Moderator."
+        : "Unexpected status."
+      );
+      return;
     }
+
+    if (window.confirm(message)) handleRequest();
   };
 
-  // Defining a function to determine button styles
   const getButtonStyle = () => {
     switch (membershipStatus) {
-      case "Request to Join":
-        return "request-join-button"; // Green button
+      case "Request To Join":
+        return "request-join-button";
       case "Request Pending. Cancel":
-        return "request-pending-button"; // Yellow button
+        return "request-pending-button";
       case "Leave Club":
-        return "leave-club-button"; // Red button
+        return "leave-club-button";
       case "Request Rejected":
-        return "reject-button"; 
       case "Removed From Club":
         return "reject-button";
       default:
-        return "club-request-button"; // Default styling
+        return "club-request-button";
     }
   };
 
   return (
     <div className="club-page-container">
-      <h1 className="club-page-title">{decodedClubName}</h1>
+      <div className="club-header">
+        <img src={logo} alt={`${decodedClubName} Logo`} className="club-logo" />
+        <h1 className="club-page-title">{decodedClubName}</h1>
+      </div>
       <p className="club-page-info">{additionalInfo}</p>
-      <button
-        className="club-back-button"
-        onClick={() => router.push("/user/clubs")}
-      >
-        Back to All Clubs
-      </button>
-      <button
-        className={`${getButtonStyle()}`}
-        onClick={confirmAndHandleRequest}
-      >
-        {membershipStatus}
-      </button>
+
+      <div className="club-info-sections">
+        <div className="info-section">
+          <h2 className="achieve-header">Achievements</h2>
+          <ul className="ul-achivement">
+            {achievements.length > 0 ? achievements.map((a, i) => <li key={i}>{a}</li>) : "No achievements available."}
+          </ul>
+        </div>
+        <div className="info-section">
+          <h2>Events</h2>
+          <ul>
+            {events.length > 0 ? events.map((e, i) => <li key={i}>{e}</li>) : "No events available."}
+          </ul>
+        </div>
+        <div className="info-section">
+          <h2 className="outcome-header">Outcomes</h2>
+          <ul className="ul-outcome">
+            {outcomes.length > 0 ? outcomes.map((o, i) => <li key={i}>{o}</li>) : "No outcomes available."}
+          </ul>
+        </div>
+      </div>
+
+      <div className="button-group">
+        <button className="club-back-button" onClick={() => router.push("/moderator/clubs")}>Back to All Clubs</button>
+        <button className={getButtonStyle()} onClick={confirmAndHandleRequest}>{membershipStatus}</button>
+      </div>
     </div>
   );
 };

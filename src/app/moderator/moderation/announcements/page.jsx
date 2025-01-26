@@ -77,49 +77,49 @@ const Announcements = () => {
   };
 
   return (
-    <div className="admin-container">
+    <div className="moderation-container">
       {/* Announcements Section */}
-      <div className="admin-section">
-        <h2 className="admin-section-title">Announcements</h2>
+      <div className="moderation-section">
+        <h2 className="moderation-section-title">Announcements</h2>
 
         {/* Post New Announcement */}
-        <form className="admin-announcement-form" onSubmit={handlePostAnnouncement}>
+        <form className="moderation-announcement-form" onSubmit={handlePostAnnouncement}>
           <textarea
-            className="admin-announcement-textarea"
+            className="moderation-announcement-textarea"
             placeholder="Write an announcement..."
             value={announcement}
             onChange={(e) => setAnnouncement(e.target.value)}
           ></textarea>
-          <button type="submit" className="admin-button announcement-button">
+          <button type="submit" className="moderation-button announcement-button">
             Post Announcement
           </button>
         </form>
 
         {/* Displaying Announcements in Table */}
-        <div className="announcement-table-container">
-          <h3 className="announcement-table-title">All Announcements</h3>
-          <table className="announcement-table">
+        <div className="moderation-announcement-table-container">
+          <h3 className="moderation-announcement-table-title">All Announcements</h3>
+          <table className="moderation-announcement-table">
             <thead>
               <tr>
                 <th>Poster</th>
-                <th className="announcement-table-header">Date</th>
-                <th className="announcement-table-header">Announcements</th>
+                <th className="moderation-announcement-table-header">Date</th>
+                <th className="moderation-announcement-table-header">Announcements</th>
               </tr>
             </thead>
             <tbody>
               {announcements.length > 0 ? (
                 announcements.map((announcement, index) => (
-                  <tr key={index} className="announcement-table-row">
-                    <td className="announcement-table-cell">{announcement.admin}</td>
-                    <td className="announcement-table-cell">
+                  <tr key={index} className="moderation-announcement-table-row">
+                    <td className="moderation-announcement-table-cell">{announcement.admin}</td>
+                    <td className="moderation-announcement-table-cell">
                       {new Date(announcement.createdAt).toLocaleString()} {/* Format date */}
                     </td>
-                    <td className="announcement-table-cell">{announcement.message}</td>
+                    <td className="moderation-announcement-table-cell">{announcement.message}</td>
                   </tr>
                 ))
               ) : (
                 <tr>
-                  <td colSpan="3" className="announcement-table-cell">
+                  <td colSpan="3" className="moderation-announcement-table-cell">
                     No announcements to display.
                   </td>
                 </tr>

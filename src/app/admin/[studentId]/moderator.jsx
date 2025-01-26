@@ -32,6 +32,8 @@ const Moderator = ({ studentId, onCut }) => {
   
       const result = await response.json();
       console.log(result);
+      alert("Moderator Status Updated Successfully")
+      onCut();
     } else {
       alert("Action cancelled.");
     }

@@ -99,8 +99,6 @@ export async function PUT(req) {
       };
     });
 
-    console.log(users)
-
     // Return the combined data
     return NextResponse.json(
       { success: true, data: users },

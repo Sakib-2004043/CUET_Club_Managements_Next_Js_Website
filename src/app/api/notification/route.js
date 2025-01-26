@@ -64,6 +64,7 @@ export async function PATCH(req) {
     // Parse the JSON body from the request
     const body = await req.json();
     const { clubName } = body;
+    console.log("Body",body)
 
     // Validate the input fields
     if (!clubName) {

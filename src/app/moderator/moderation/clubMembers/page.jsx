@@ -10,11 +10,10 @@ const clubMembers = () => {
   const [users, setUsers] = useState([]); // All users fetched from the API
   const [filteredUsers, setFilteredUsers] = useState([]); // Users to display after search
   const [searchText, setSearchText] = useState(""); // Search input text
-  const [admin, setAdmin] = useState("");
+  const [moderation, setModeration] = useState(""); // Store moderation data
   const router = useRouter(); // Next.js router for navigation
 
   const token = typeof window !== "undefined" ? localStorage.getItem("token") : null;
-
 
   useEffect(() => {
     // Fetch users when the component loads
@@ -32,7 +31,7 @@ const clubMembers = () => {
           router.push('/login');
           return;
         }
-        setAdmin(admin)
+        setModeration(admin)
         const usersResponse = await fetch('/api/moderation', {
           method: 'PUT',
           headers: {
@@ -95,11 +94,11 @@ const clubMembers = () => {
     return `data:image/jpeg;base64,${base64Image}`;
   };
 
-  // Handle row click to navigate to the student's admin page
+  // Handle row click to navigate to the student's moderation page
   const handleRowClick = (studentId) => {
     const data = {
       studentId : studentId,
-      admin : admin
+      admin : moderation
     }
     localStorage.setItem("STDID",JSON.stringify(data))
     console.log(localStorage.getItem("STDID"))
@@ -107,51 +106,51 @@ const clubMembers = () => {
   };
 
   return (
-    <div className="admin-container">
+    <div className="moderation-container">
       {/* Student Data Section */}
-      <div className="admin-section">
+      <div className="moderation-section">
         <input
           type="text"
           value={searchText}
           onChange={handleSearch}
           placeholder="Search..."
-          className="admin-search-input"
+          className="moderation-search-input"
         />
 
-        <h2 className="admin-section-title">Student Data</h2>
-        <table className="admin-table">
+        <h2 className="moderation-section-title">Student Data</h2>
+        <table className="moderation-table">
           <thead>
             <tr>
-              <th className="admin-table-header">Profile</th>
-              <th className="admin-table-header">Name</th>
-              <th className="admin-table-header">StudentID</th>
-              <th className="admin-table-header">Dept</th>
-              <th className="admin-table-header">Moderator</th>
+              <th className="moderation-table-header">Profile</th>
+              <th className="moderation-table-header">Name</th>
+              <th className="moderation-table-header">StudentID</th>
+              <th className="moderation-table-header">Dept</th>
+              <th className="moderation-table-header">Moderator</th>
             </tr>
           </thead>
           <tbody>
             {filteredUsers.map((user) => (
               <tr
                 key={user._id}
-                className="admin-table-row"
+                className="moderation-table-row"
                 onClick={() => handleRowClick(user.studentId)} // Navigate on row click
                 style={{ cursor: "pointer" }} // Indicate clickability
               >
-                <td className="admin-table-data">
+                <td className="moderation-table-data">
                   {user.profileImage ? (
                     <img
                       src={convertBufferToBase64(user.profileImage)}
                       alt="Profile"
-                      className="admin-profile-image"
+                      className="moderation-profile-image"
                     />
                   ) : (
                     <span className="no-image-text">No Image</span>
                   )}
                 </td>
-                <td className="admin-table-data">{highlightMatch(user.name)}</td>
-                <td className="admin-table-data">{highlightMatch(user.studentId)}</td>
-                <td className="admin-table-data">{highlightMatch(user.department)}</td>
-                <td className="admin-table-data">{highlightMatch(user.admin)}</td>
+                <td className="moderation-table-data">{highlightMatch(user.name)}</td>
+                <td className="moderation-table-data">{highlightMatch(user.studentId)}</td>
+                <td className="moderation-table-data">{highlightMatch(user.department)}</td>
+                <td className="moderation-table-data">{highlightMatch(user.admin)}</td>
               </tr>
             ))}
           </tbody>

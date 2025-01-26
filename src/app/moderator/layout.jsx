@@ -1,72 +1,147 @@
 "use client";
-import { useEffect } from 'react';
-import Link from 'next/link';
-import './layout.css'; // Assuming this CSS file exists in the same directory
-import { useRouter } from 'next/navigation';
-import { checkToken } from '@/utils/auth';
-import { jwtDecode } from 'jwt-decode'; // Import jwt-decode library
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import "./layout.css"; // Assuming this CSS file exists
+import { useRouter } from "next/navigation";
+import { checkToken } from "@/utils/auth";
+import { jwtDecode } from "jwt-decode";
 
-export default function subLayout({ children }) {
+export default function SubLayout({ children }) {
   const router = useRouter();
 
-  // Define the validateToken function outside of useEffect to make it accessible in JSX
+  const [rotate, setRotate] = useState(false); // State for rotating bell animation
+  const [notifications, setNotifications] = useState(0); // Default to 0 notifications
+  const [clubName, setClubName ] = useState("");
+
+  const logo = "/CuetLogo.png";
+  const bell = "/bell.png";
+
   const validateToken = async () => {
-    const isValid = await checkToken(router);
-    if (!isValid) {
-      console.log('Redirected due to invalid token');
-      return;
-    }
-
-    const token = localStorage.getItem("token");
-
-    // Decode the token using jwt-decode
-    if (token) {
-      try {
-        const decodedData = jwtDecode(token);
-        console.log("Admin : ", decodedData.admin);
-
-        if(decodedData.admin === "Admin"){
-          router.push("/admin") // Redirect to user route
-        }
-        else if(decodedData.admin === "Member Only"){
-          router.push("/user") // Redirect to user route
-        }
-        
-      } 
-      catch (error) {
-        console.error("Error decoding token:", error);
+    try {
+      const isValid = await checkToken(router);
+      if (!isValid) {
+        console.log("Redirected due to invalid token");
+        return;
       }
+
+      const token = localStorage.getItem("token");
+
+      if (token) {
+        try {
+          const decodedData = jwtDecode(token);
+          console.log("Admin : ", decodedData.admin);
+          setClubName(decodedData.admin)
+          if (decodedData.admin === "Admin") {
+            router.push("/admin");
+          } else if (decodedData.admin === "Member Only") {
+            router.push("/user");
+          }
+        } catch (error) {
+          console.error("Error decoding token:", error);
+        }
+      }
+    } catch (error) {
+      console.error("Error validating token:", error);
     }
   };
 
-  // Run the token validation check when the component mounts
+  const fetchNotifications = async (clubName) => {
+    console.log("Admin..",clubName)
+    try {
+      const response = await fetch("/api/notification", {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ clubName }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setNotifications(data.count); // Assuming the response contains a `count` field
+      } else {
+        console.error("Failed to fetch notifications");
+      }
+    } catch (error) {
+      console.error("Error fetching notifications:", error);
+    }
+  };
+
   useEffect(() => {
     validateToken();
-  }, [router]);
+    fetchNotifications(clubName);
+  }, [router,clubName]);
+
+  const handleBellClick = () => {
+    // Example logic for bell click
+    setRotate(!notifications);
+    console.log("Notification bell clicked!");
+  };
+
+  const handleLogout = () => {
+    try {
+      localStorage.removeItem("token"); // Remove token from local storage
+      router.push("/login"); // Redirect to login page
+    } catch (error) {
+      console.error("Error during logout:", error);
+    }
+  };
 
   return (
     <div className="sub-layout">
-      <h1 className="user-title">User Dashboard</h1>
+      <header className="moderator-header">
+        <Image
+          src={logo}
+          alt="CUET Logo"
+          width={60}
+          height={60}
+          style={{ height: "auto", width: "auto" }}
+          className="logo"
+        />
+        <h1 className="moderator-heading">
+          Welcome to CUET All Club Management - Moderator Panel
+        </h1>
+        <div className="notification-container">
+          <div className="notification-bell-container">
+            <Image
+              src={bell}
+              alt="Notification Bell"
+              width={60}
+              height={60}
+              style={{ height: "auto", width: "auto" }}
+              className={`bell ${rotate ? "rotate" : ""}`} // Apply the rotating class when notifications > 0
+              onClick={handleBellClick}
+            />
+            {notifications > 0 && (
+              <span className="notification-dot">{notifications}</span>
+            )}
+          </div>
+          <button className="log-out-button" onClick={handleLogout}>
+            Log Out
+          </button>
+        </div>
+      </header>
+
       <nav className="moderator-nav">
         <Link href="/moderator" className="moderator-link" onClick={validateToken}>
-          Home
+          Home 🏠
         </Link>
         <Link href="/moderator/profile" className="moderator-link" onClick={validateToken}>
-          Profile
+          Profile 👤
         </Link>
-        <Link href="/moderator/clubs" className="moderator-link" onClick={validateToken}>
-          Clubs
+        <Link href="/moderator/announcements" className="moderator-link" onClick={validateToken}>
+          Announcements 📢
         </Link>
-        <Link href="/moderator/moderation" className="moderator-link">
-          Moderation
+        <Link href="/moderator/clubs" className="moderator-link">
+          Clubs 🏛️
         </Link>
-        <Link href="/moderator/announcements" className="moderator-link">
-          Announcements
+        <Link href="/moderator/moderation/announcements" className="moderator-link">
+          Moderation ⚙️
         </Link>
       </nav>
-      <main className="user-content">
-        {children}
-      </main>
+
+      <main className="moderator-content">{children}</main>
     </div>
   );
 }

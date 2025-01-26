@@ -9,9 +9,10 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: url('/go2.jpg');  
+  background: url('/cuetGate.jpg');  
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
 }
 
 .header-section {

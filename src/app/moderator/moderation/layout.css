@@ -1,39 +1,84 @@
-.sub-layout{
+/* General Styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f3f4f6;
+  color: #333;
+}
+
+/* Sub Layout Styling */
+.moderator-moderation-sub-layout {
+  max-width: 1200px;
+  margin: 2rem auto;
+  background: linear-gradient(135deg, #6a11cb, #2575fc); /* Gradient background */
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  padding: 1.5rem;
+  color: #fff;
+}
+
+/* Navigation Bar */
+.moderator-moderation-nav {
   display: flex;
-  flex-direction: column;
-  text-align: center;
-}
-/* Styling the navigation bar */
-.nav {
-  gap: 20px;
-  padding: 20px 20px 20px 20px;
-  background-color: #f8f9fa;
-  border-bottom: 2px solid #ddd;
+  justify-content: space-around;
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent overlay for nav */
+  padding: 1rem;
+  border-radius: 15px;
+  margin-bottom: 1.5rem;
 }
 
-.link {
+/* Navigation Links */
+.moderation-link {
   text-decoration: none;
-  color: #0070f3;
-  font-weight: normal;
-  padding: 8px 15px;
-  border-radius: 4px;
-  transition: background-color 0.3s, color 0.3s;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  border-radius: 50px;
+  transition: all 0.3s ease-in-out;
+  background: rgba(255, 255, 255, 0.2); /* Light overlay on links */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.link:hover {
-  background-color: #0070f3;
-  color: white;
+/* Hover Effect */
+.moderation-link:hover {
+  background: #ff8a00; /* Bright orange hover */
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
-.link:focus {
-  outline: 2px solid #0070f3;
-  outline-offset: 2px;
-}
-
-/* Active link styles */
-.active {
+/* Active Link Styling */
+.moderation-link.active {
+  background: #ff8a00; /* Active state color */
   font-weight: bold;
-  color: #0070f3;
-  background-color: #e0e0e0;
+  border: 2px solid #fff;
 }
 
+/* Main Content Area */
+.moderation-content {
+  background: #ffffff;
+  color: #333;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .moderator-moderation-nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .moderation-link {
+    margin-bottom: 1rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  .moderation-content {
+    padding: 1rem;
+  }
+}
