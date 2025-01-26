@@ -64,13 +64,12 @@ export async function PATCH(req) {
     // Parse the JSON body from the request
     const body = await req.json();
     const { clubName } = body;
-    console.log("Body",body)
 
     // Validate the input fields
     if (!clubName) {
       return NextResponse.json(
-        { error: "Missing required field: clubName" },
-        { status: 400 }
+        { Msg: "Missing required field: clubName" },
+        { status: 201 }
       );
     }
 

@@ -6,6 +6,7 @@ import "./layout.css"; // Assuming this CSS file exists
 import { useRouter } from "next/navigation";
 import { checkToken } from "@/utils/auth";
 import { jwtDecode } from "jwt-decode";
+import { setZeroNotification } from "@/utils/notification";
 
 export default function SubLayout({ children }) {
   const router = useRouter();
@@ -47,7 +48,6 @@ export default function SubLayout({ children }) {
   };
 
   const fetchNotifications = async (clubName) => {
-    console.log("Admin..",clubName)
     try {
       const response = await fetch("/api/notification", {
         method: "PATCH",
@@ -59,7 +59,10 @@ export default function SubLayout({ children }) {
 
       if (response.ok) {
         const data = await response.json();
-        setNotifications(data.count); // Assuming the response contains a `count` field
+        setNotifications(data.count); 
+        if(data.count > 0){
+          setRotate(true)
+        }
       } else {
         console.error("Failed to fetch notifications");
       }
@@ -73,10 +76,12 @@ export default function SubLayout({ children }) {
     fetchNotifications(clubName);
   }, [router,clubName]);
 
-  const handleBellClick = () => {
-    // Example logic for bell click
-    setRotate(!notifications);
-    console.log("Notification bell clicked!");
+  const handleBellClick = async() => {
+
+    setNotifications(0);
+    await setZeroNotification(clubName);
+    setRotate(false)
+    router.push("moderator/moderation/approval")
   };
 
   const handleLogout = () => {
@@ -113,7 +118,7 @@ export default function SubLayout({ children }) {
               className={`bell ${rotate ? "rotate" : ""}`} // Apply the rotating class when notifications > 0
               onClick={handleBellClick}
             />
-            {notifications > 0 && (
+            {notifications >= 0 && (
               <span className="notification-dot">{notifications}</span>
             )}
           </div>

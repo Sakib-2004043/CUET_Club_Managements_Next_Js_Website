@@ -1,125 +1,94 @@
-'use client';
+"use client";
+import "./moderator.css";
 
-import { useState } from 'react';
-import './moderator.css'; // Import CSS file for styling
-
-const ModeratorLandingPage = () => {
-  const [activeTab, setActiveTab] = useState('announcements');
-
+const ModeratorLanding = () => {
   return (
-    <div className="mod-landing-container">
+    <div className="moderator-landing-page">
       {/* Header Section */}
-      <header className="mod-header">
-        <h1 className="mod-title">🏛️ Club Moderator Dashboard</h1>
-        <p className="mod-subtitle">Welcome! Manage your club activities seamlessly.</p>
+      <header className="mod-land-header">
+        <h1 className="mod-land-header-title">🌟 Welcome to CUET Club Portal</h1>
+        <p className="mod-land-header-subtitle">
+          A unified platform to explore, connect, and grow through vibrant club activities.
+        </p>
       </header>
 
-      {/* Quick Stats Section */}
-      <div className="mod-stats">
-        <div className="mod-stat-card">
-          <h3>📢 Total Announcements</h3>
-          <p>25</p>
-        </div>
-        <div className="mod-stat-card">
-          <h3>👥 Club Members</h3>
-          <p>150</p>
-        </div>
-        <div className="mod-stat-card">
-          <h3>✅ Pending Approvals</h3>
-          <p>8</p>
-        </div>
-      </div>
+      {/* Motto Section */}
+      <section className="mod-land-section motto-section">
+        <h2 className="mod-land-section-title">Our Motto</h2>
+        <p className="mod-land-section-content">
+          "Unity in Diversity, Innovation in Action." CUET clubs bring together creative minds, technical enthusiasts, and visionaries to achieve excellence in every field.
+        </p>
+      </section>
 
-      {/* Tabs Section */}
-      <div className="mod-tab-container">
-        <button
-          className={activeTab === 'announcements' ? 'mod-active-tab' : 'mod-tab'}
-          onClick={() => setActiveTab('announcements')}
-        >
-          Announcements
-        </button>
-        <button
-          className={activeTab === 'clubMembers' ? 'mod-active-tab' : 'mod-tab'}
-          onClick={() => setActiveTab('clubMembers')}
-        >
-          Club Members
-        </button>
-        <button
-          className={activeTab === 'approvals' ? 'mod-active-tab' : 'mod-tab'}
-          onClick={() => setActiveTab('approvals')}
-        >
-          Approvals
-        </button>
-      </div>
+      {/* Vision Section */}
+      <section className="mod-land-section vision-section">
+        <h2 className="mod-land-section-title">Our Vision</h2>
+        <p className="mod-land-section-content">
+          To cultivate an environment where students can discover their full potential, forge strong networks, and contribute to society through innovation, teamwork, and dedication.
+        </p>
+      </section>
 
-      {/* Tab Content Section */}
-      <div className="mod-content">
-        {activeTab === 'announcements' && (
-          <div className="mod-card">
-            <h2>📢 Announcements</h2>
-            <p>Create and manage announcements for your club members.</p>
-            <button className="mod-action-btn">Add New Announcement</button>
-            <ul className="mod-announcement-list">
-              <li>Meeting scheduled for 5th February at 4 PM.</li>
-              <li>Club elections to be held next week.</li>
-              <li>New projects launching soon, stay tuned!</li>
-            </ul>
-          </div>
-        )}
+      {/* Highlights Section */}
+      <section className="mod-land-section highlights-section">
+        <h2 className="mod-land-section-title">Highlights of Our Clubs</h2>
+        <ul className="mod-land-section-content highlights-list">
+          <li>🌟 15+ Active Clubs Across Various Domains</li>
+          <li>🏆 Over 50 Achievements in National and International Events</li>
+          <li>📚 A Growing Community of 500+ Members</li>
+          <li>🔗 Collaboration with Industry Leaders and Alumni</li>
+        </ul>
+      </section>
 
-        {activeTab === 'clubMembers' && (
-          <div className="mod-card">
-            <h2>👥 Club Members</h2>
-            <p>View and manage all club members here.</p>
-            <table className="mod-table">
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Role</th>
-                  <th>Contact</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>John Doe</td>
-                  <td>President</td>
-                  <td>john.doe@example.com</td>
-                </tr>
-                <tr>
-                  <td>Jane Smith</td>
-                  <td>Vice President</td>
-                  <td>jane.smith@example.com</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        )}
+      {/* Activities Section */}
+      <section className="mod-land-section activities-section">
+        <h2 className="mod-land-section-title">What We Do</h2>
+        <p className="mod-land-section-content">
+          Our clubs organize events and activities aimed at fostering creativity, innovation, and leadership. Some of our major initiatives include:
+        </p>
+        <ul className="work-list">
+          <li>📅 Hosting Technical and Cultural Festivals</li>
+          <li>💻 Conducting Workshops and Hackathons</li>
+          <li>🤝 Networking Events with Professionals</li>
+          <li>🎨 Organizing Art Exhibitions and Performances</li>
+        </ul>
+      </section>
 
-        {activeTab === 'approvals' && (
-          <div className="mod-card">
-            <h2>✅ Approvals</h2>
-            <p>Approve or reject new member requests.</p>
-            <ul className="mod-approval-list">
-              <li>
-                <span>Michael Brown</span>
-                <div>
-                  <button className="mod-approve-btn">Approve</button>
-                  <button className="mod-reject-btn">Reject</button>
-                </div>
-              </li>
-              <li>
-                <span>Emily Davis</span>
-                <div>
-                  <button className="mod-approve-btn">Approve</button>
-                  <button className="mod-reject-btn">Reject</button>
-                </div>
-              </li>
-            </ul>
-          </div>
-        )}
-      </div>
+      {/* Future Plans Section */}
+      <section className="mod-land-section future-section">
+        <h2 className="mod-land-section-title">Our Future Plans</h2>
+        <p className="mod-land-section-content">
+          CUET clubs are committed to a brighter future. Upcoming initiatives include:
+        </p>
+        <ul className="future-plans-list">
+          <li>🚀 Launching a Tech Carnival for Innovators</li>
+          <li>🌍 Social Awareness Campaigns for Community Growth</li>
+          <li>🏢 Startup Incubation Programs for Aspiring Entrepreneurs</li>
+          <li>🎤 Hosting International Conferences and Seminars</li>
+        </ul>
+      </section>
+
+      {/* Join Us Section */}
+      <section className="mod-land-section join-section">
+        <h2 className="mod-land-section-title">Why Join Us?</h2>
+        <p className="mod-land-section-content">
+          By joining CUET clubs, you gain access to:
+        </p>
+        <ul className="join-benefits-list">
+          <li>💼 Leadership Opportunities</li>
+          <li>🌟 Exclusive Skill-Building Programs</li>
+          <li>🔗 Networking with Industry Experts</li>
+          <li>🎉 A Platform to Showcase Your Talents</li>
+        </ul>
+      </section>
+
+      {/* Footer Section */}
+      <footer className="mod-land-footer">
+        <p className="mod-land-footer-text">
+          ✨ Be part of a journey that transforms ideas into reality. Join us today and make an impact! ✨
+        </p>
+      </footer>
     </div>
   );
 };
 
-export default ModeratorLandingPage;
+export default ModeratorLanding;

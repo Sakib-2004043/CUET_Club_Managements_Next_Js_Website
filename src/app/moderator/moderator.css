@@ -1,200 +1,106 @@
-/* General Container */
-.mod-landing-container {
-  font-family: 'Arial', sans-serif;
-  background-color: #f4f7fc;
-  padding: 20px;
+/* General Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  color: #333; /* Dark text for readability */
+}
+
+.moderator-landing-page {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
+  padding: 20px;
+  font-weight: bolder;
 }
 
 /* Header Section */
-.mod-header {
-  text-align: center;
-  margin-bottom: 30px;
+.mod-land-header {
+  background-color: #b4e1f6; /* Soft light blue */
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  max-width: 800px;
+  width: 90%;
 }
 
-.mod-title {
-  font-size: 2.5rem;
-  color: #4e73df;
+.mod-land-header-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #0073e6; /* Bright blue */
+  margin-bottom: 10px;
 }
 
-.mod-subtitle {
-  font-size: 1.1rem;
+.mod-land-header-subtitle {
+  font-size: 1.2rem;
   color: #555;
 }
 
-/* Quick Stats Section */
-.mod-stats {
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-  margin-bottom: 40px;
-}
-
-.mod-stat-card {
-  background-color: #fff;
-  border-radius: 8px;
+/* Section Styles */
+.mod-land-section {
+  background-color: #ffffff;
+  border-radius: 15px;
   padding: 20px;
-  width: 30%;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  width: 90%;
 }
 
-.mod-stat-card h3 {
-  font-size: 1.3rem;
-  color: #333;
-}
-
-.mod-stat-card p {
+.mod-land-section-title {
   font-size: 1.5rem;
-  color: #4e73df;
   font-weight: bold;
-}
-
-/* Tabs Section */
-.mod-tab-container {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-bottom: 30px;
-}
-
-.mod-tab {
-  background-color: #fff;
-  padding: 10px 20px;
-  font-size: 1.2rem;
-  color: #4e73df;
-  border: 2px solid #4e73df;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.mod-active-tab {
-  background-color: #4e73df;
-  color: #fff;
-  border: 2px solid #4e73df;
-}
-
-.mod-tab:hover {
-  background-color: #4e73df;
-  color: #fff;
-  border: 2px solid #4e73df;
-}
-
-/* Tab Content Section */
-.mod-content {
-  width: 100%;
-  max-width: 900px;
-}
-
-/* Individual Cards */
-.mod-card {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  margin-bottom: 30px;
-}
-
-.mod-card h2 {
-  font-size: 2rem;
-  color: #333;
+  color: #00509e; /* Medium blue */
   margin-bottom: 15px;
 }
 
-.mod-card p {
-  font-size: 1.1rem;
-  color: #555;
-}
-
-/* Action Button */
-.mod-action-btn {
-  background-color: #28a745;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
+.mod-land-section-content {
   font-size: 1rem;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.mod-action-btn:hover {
-  background-color: #218838;
-}
-
-/* Announcements List */
-.mod-announcement-list {
-  list-style-type: none;
-  padding: 0;
-}
-
-.mod-announcement-list li {
-  background-color: #f1f1f1;
-  margin: 10px 0;
-  padding: 10px;
-  border-radius: 8px;
-}
-
-/* Club Members Table */
-.mod-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-.mod-table th, .mod-table td {
-  padding: 10px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-}
-
-.mod-table th {
-  background-color: #f7f7f7;
   color: #333;
+  line-height: 1.6;
 }
 
-.mod-table tr:hover {
-  background-color: #f1f1f1;
-}
-
-/* Approvals List */
-.mod-approval-list {
+ul {
   list-style-type: none;
   padding: 0;
 }
 
-.mod-approval-list li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #f1f1f1;
+li {
   margin: 10px 0;
-  padding: 10px;
-  border-radius: 8px;
+  font-size: 1rem;
+  color: #0073e6;
+  font-weight: bold;
 }
 
-.mod-approve-btn, .mod-reject-btn {
-  background-color: #007bff;
-  color: #fff;
-  padding: 8px 16px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
+/* Footer Section */
+.mod-land-footer {
+  background-color: #0073e6; /* Vibrant blue */
+  border-radius: 15px;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  max-width: 800px;
+  width: 90%;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effect */
 }
 
-.mod-approve-btn:hover {
-  background-color: #0056b3;
+.mod-land-footer:hover {
+  background-color: #00509e; /* Darker blue on hover */
+  transform: scale(1.05); /* Slight zoom effect */
 }
 
-.mod-reject-btn {
-  background-color: #dc3545;
+.mod-land-footer-text {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ffffff; /* White text for contrast */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Subtle text shadow for depth */
+  margin: 0;
+  transition: color 0.3s ease; /* Smooth color transition on hover */
 }
 
-.mod-reject-btn:hover {
-  background-color: #c82333;
+.mod-land-footer-text:hover {
+  color: #f0f8ff; /* Lighter blue text on hover */
 }

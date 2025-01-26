@@ -95,7 +95,7 @@ const Login = () => {
               type="submit"
               disabled={isLoading}
             >
-              {isLoading ? <span className="loader">0</span> : "Login"}
+              {isLoading ? <span className="loader">.0.</span> : "Login"}
             </button>
           </div>
         </form>

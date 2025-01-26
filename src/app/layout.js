@@ -10,28 +10,35 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        
         {children}
-        <footer className="footer">
-          <div className="footer-content">
+        <footer className="footer bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white py-6">
+          <div className="footer-content flex flex-col md:flex-row justify-between items-center px-6">
             
-            <div className="footer-contact">
-              <p className="contact-info">Email: info@example.com</p>
-              <p className="contact-info">Phone: +1-234-567-890</p>
-              <p className="contact-info">Address: 123 Main St, City, Country</p>
+            <div className="footer-contact mb-4 md:mb-0">
+              <p className="contact-info mb-1">📧 Email: info@cuetcms.com</p>
+              <p className="contact-info mb-1">📞 Phone: +880-1234-567890</p>
+              <p className="contact-info">📍 Address: CUET Campus, Chittagong, Bangladesh</p>
             </div>
             
-            <div className="footer-links">
-              <Link href="/about" className="footer-link">About Us</Link>
-              <Link href="/contact" className="footer-link">Contact</Link>
-              <Link href="/privacy" className="footer-link">Privacy Policy</Link>
+            <div className="footer-links flex space-x-4">
+              <Link href="/about" className="footer-link text-white hover:text-yellow-300 transition-all">
+                About Us
+              </Link>
+              <Link href="/contact" className="footer-link text-white hover:text-yellow-300 transition-all">
+                Contact
+              </Link>
+              <Link href="/privacy" className="footer-link text-white hover:text-yellow-300 transition-all">
+                Privacy Policy
+              </Link>
             </div>
           </div>
-          <div className="footer-container">
-            <p>&copy; 2024 CUET Club Management System</p>
-            <p>Chittagong University of Engineering & Technology</p>
+          
+          <div className="footer-container mt-6 text-center border-t border-white pt-4">
+            <p className="text-sm">&copy; 2025 CUET Club Management System</p>
+            <p className="text-sm">Chittagong University of Engineering & Technology</p>
           </div>
         </footer>
+
       </body>
     </html>
   );
